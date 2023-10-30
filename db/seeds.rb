@@ -1,0 +1,50 @@
+# This file should ensure the existence of records required to run the application in every environment (production,
+# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Example:
+#
+#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+#     MovieGenre.find_or_create_by!(name: genre_name)
+#   end
+
+
+gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", cnpj: "72.178.624/0001-04")
+
+user_adm = User.find_or_create_by!(name: "Hugo Freitas")
+
+Email.find_or_create_by!(address: "academia@hfstudio.com")
+
+state_rj = State.find_or_create_by!(name: "Rio de Janeiro", uf: "RJ")
+
+city_campos = City.find_or_create_by!(name: "Campos dos Goytacazes", state_id: state_rj.id)
+
+Telephone.find_or_create_by!(number: "(22)99999-9999", user_id: user_adm.id, gym_id: gym_hfstudio.id)
+
+Location.find_or_create_by!(
+	address: "Rua Teste", 
+	number: "123",
+	neighborhood: "bairro a",
+	complement: "frente",
+	gym_id: gym_hfstudio.id,
+	city_id: city_campos.id,
+	user_id: nil, 
+)
+
+client_rafael = Client.find_or_create_by!(name: "Rafael", weight: 0.0, height: 0.0)
+
+employee_joao = Employee.find_or_create_by!(name: "João", weight: 0.0, height: 0.0)
+
+record_1 = Record.find_or_create_by!(
+	begin_date: "data inicial", 
+	end_date: "data final",
+	client_id: client_rafael.id,
+	goal: "objetivo",
+	interval: "intervalo",
+	employee_id: employee_joao.id,
+)
+
+training_1 = Training.find_or_create_by!(name: "Treino 1", record_id: record_1.id)
+exercise_1 = Exercise.find_or_create_by!(name: "Exercicio 1", qnt_series: 10, qnt_repetitions: 5)
+
+training_exercise_1 = TrainingExercise.find_or_create_by!(training_id: training_1.id, exercise_id: exercise_1.id)
