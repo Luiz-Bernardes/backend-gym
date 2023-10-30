@@ -3,4 +3,5 @@ class Location < ApplicationRecord
 
 	belongs_to :gym, optional: true 
 	belongs_to :user, optional: true 
+	belongs_to :city 
 end
