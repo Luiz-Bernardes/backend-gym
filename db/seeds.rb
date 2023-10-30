@@ -19,7 +19,7 @@ state_rj = State.find_or_create_by!(name: "Rio de Janeiro", uf: "RJ")
 
 city_campos = City.find_or_create_by!(name: "Campos dos Goytacazes", state_id: state_rj.id)
 
-Telephone.find_or_create_by!(number: "(22)99999-9999", user_id: user_adm.id, gym_id: gym_hfstudio.id)
+Telephone.find_or_create_by!(number: "(22)99999-9999", user_id: nil, gym_id: gym_hfstudio.id)
 
 Location.find_or_create_by!(
 	address: "Rua Teste", 

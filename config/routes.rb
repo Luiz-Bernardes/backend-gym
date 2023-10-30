@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :gyms, only: [:index, :show, :update, :create]
+  resources :telephones, only: [:index, :show, :update, :create]
 end

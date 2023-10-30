@@ -3,5 +3,5 @@ class GymSerializer
   attributes :name, :cnpj
 
   # has_many :emails
-  # has_many :telephones
+  has_many :telephones
 end

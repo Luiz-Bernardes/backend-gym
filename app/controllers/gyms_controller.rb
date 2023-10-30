@@ -53,7 +53,6 @@ class GymsController < ApplicationController
 	  end
 
 	  def options
-	    # @options ||= { include: %i[emails telephones] } 
 	    @options ||= { include: %i[] } 
 	  end
 end
