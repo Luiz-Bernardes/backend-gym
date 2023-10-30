@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :gyms, only: [:index, :show, :update, :create]
-  resources :telephones, only: [:index, :show, :update, :create]
-  resources :emails, only: [:index, :show, :update, :create]
+  resources :telephones
+  resources :emails
+  resources :states, only: [:index, :show, :update, :create]
+  resources :cities, only: [:index, :show, :update, :create]
 end
