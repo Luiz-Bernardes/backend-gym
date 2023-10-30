@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :emails
   resources :states, only: [:index, :show, :update, :create]
   resources :cities, only: [:index, :show, :update, :create]
+  resources :locations
 end
