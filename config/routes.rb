@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :gyms, only: [:index, :show, :update, :create]
   resources :telephones, only: [:index, :show, :update, :create]
+  resources :emails, only: [:index, :show, :update, :create]
 end

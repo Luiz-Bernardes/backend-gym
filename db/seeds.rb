@@ -13,7 +13,7 @@ gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", cnpj: "72.178.624/0001-0
 
 user_adm = User.find_or_create_by!(name: "Hugo Freitas")
 
-Email.find_or_create_by!(address: "academia@hfstudio.com")
+Email.find_or_create_by!(address: "academia@hfstudio.com", gym_id: gym_hfstudio.id)
 
 state_rj = State.find_or_create_by!(name: "Rio de Janeiro", uf: "RJ")
 

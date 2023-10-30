@@ -1,7 +1,7 @@
 class TelephonesController < ApplicationController
   before_action :set_telephone, only: [:show, :update, :destroy]
 
-  # GET /gyms
+  # GET /telephones
   def index
     @telephones = Telephone.all
     render json: serialize_telephone(@telephones, options)
