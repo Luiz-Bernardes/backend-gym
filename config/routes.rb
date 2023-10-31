@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :states, only: [:index, :show, :update, :create]
   resources :cities, only: [:index, :show, :update, :create]
   resources :locations
+  resources :plans, only: [:index, :show, :update, :create]
 end
