@@ -1,5 +1,6 @@
 class GymsController < ApplicationController
-	before_action :set_gym, only: [:show, :update, :destroy]
+	before_action :set_list_gym, only: [:show]
+	before_action :set_gym, only: [:update, :destroy]
 
 	# GET /gyms
 	def index
@@ -41,6 +42,10 @@ class GymsController < ApplicationController
 	  # Use callbacks to share common setup or constraints between actions.
 	  def set_gym
 	    @gym = Gym.find(params[:id])
+	  end
+
+	  def set_list_gym
+	  	@gym = GymService.find_by_slug_or_id(params[:id])
 	  end
 
 	  def serialize_gym query, options
