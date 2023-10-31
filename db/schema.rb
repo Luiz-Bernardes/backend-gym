@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_31_152525) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_31_233420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,6 +115,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_152525) do
     t.integer "plan_id"
     t.string "user_type"
     t.integer "gym_id"
+    t.string "role"
   end
 
 end
