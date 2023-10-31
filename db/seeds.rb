@@ -9,7 +9,7 @@
 #   end
 
 
-gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", cnpj: "72.178.624/0001-04")
+gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", cnpj: "72.178.624/0001-04", slug: 'hfstudio')
 
 user_adm = User.find_or_create_by!(name: "Hugo Freitas", user_type: 'admin')
 
