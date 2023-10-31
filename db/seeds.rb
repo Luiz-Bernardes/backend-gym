@@ -11,7 +11,7 @@
 
 gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", cnpj: "72.178.624/0001-04", slug: 'hfstudio')
 
-user_adm = User.find_or_create_by!(name: "Hugo Freitas", user_type: 'admin')
+user_adm = User.find_or_create_by!(name: "Hugo Freitas", user_type: 'admin', gym_id: gym_hfstudio.id)
 
 Email.find_or_create_by!(address: "academia@hfstudio.com", gym_id: gym_hfstudio.id)
 
@@ -33,9 +33,9 @@ Location.find_or_create_by!(
 
 plan_a = Plan.find_or_create_by!(name: "Plano A", price: 100.0)
 
-client_rafael = Client.find_or_create_by!(name: "Rafael", weight: 0.0, height: 0.0, plan_id: plan_a.id, user_type: 'client')
+client_rafael = Client.find_or_create_by!(name: "Rafael", weight: 0.0, height: 0.0, plan_id: plan_a.id, gym_id: gym_hfstudio.id, user_type: 'client')
 
-employee_joao = Employee.find_or_create_by!(name: "João", weight: 0.0, height: 0.0, user_type: 'employee')
+employee_joao = Employee.find_or_create_by!(name: "João", weight: 0.0, height: 0.0, gym_id: gym_hfstudio.id, user_type: 'employee')
 
 record_1 = Record.find_or_create_by!(
 	begin_date: "data inicial", 
