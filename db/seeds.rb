@@ -47,6 +47,6 @@ record_1 = Record.find_or_create_by!(
 )
 
 training_1 = Training.find_or_create_by!(name: "Treino 1", record_id: record_1.id)
-exercise_1 = Exercise.find_or_create_by!(name: "Exercicio 1", qnt_series: 10, qnt_repetitions: 5)
+exercise_1 = Exercise.find_or_create_by!(name: "Exercicio 1", qnt_series: 10, qnt_repetitions: 5, record_id: record_1.id)
 
 training_exercise_1 = TrainingExercise.find_or_create_by!(training_id: training_1.id, exercise_id: exercise_1.id)
