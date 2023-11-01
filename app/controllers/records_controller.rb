@@ -60,6 +60,6 @@ class RecordsController < ApplicationController
     end
 
     def options
-      @options ||= { include: %i[] } 
+      @options ||= { include: %i[trainings exercises] } 
     end
 end
