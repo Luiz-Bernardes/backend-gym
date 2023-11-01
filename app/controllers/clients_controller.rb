@@ -62,6 +62,6 @@ class ClientsController < ApplicationController
     end
 
     def options
-      @options ||= { include: %i[] } 
+      @options ||= { include: %i[records] } 
     end
 end
