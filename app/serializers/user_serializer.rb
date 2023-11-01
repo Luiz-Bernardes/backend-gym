@@ -2,7 +2,7 @@ class UserSerializer
   include FastJsonapi::ObjectSerializer
   attributes :name
 
-  has_many :emails
-  has_many :telephones
-  has_many :locations
+  has_many :emails, serializer: EmailSerializer
+  has_many :telephones, serializer: TelephoneSerializer
+  has_many :locations, serializer: LocationSerializer
 end

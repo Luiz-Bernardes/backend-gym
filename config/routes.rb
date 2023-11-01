@@ -25,4 +25,5 @@ Rails.application.routes.draw do
     resources :exercises
   end
 
+  resources :training_exercises
 end
