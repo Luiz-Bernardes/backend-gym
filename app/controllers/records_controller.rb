@@ -44,7 +44,7 @@ class RecordsController < ApplicationController
     end
 
     def serialize_record query, options
-      RecordSerializer.new(query, options).serialized_json
+      RecordSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

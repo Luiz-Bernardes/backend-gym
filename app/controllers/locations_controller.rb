@@ -44,7 +44,7 @@ class LocationsController < ApplicationController
     end
 
     def serialize_location query, options
-      LocationSerializer.new(query, options).serialized_json
+      LocationSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

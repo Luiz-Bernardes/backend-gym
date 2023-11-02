@@ -44,7 +44,7 @@ class EmployeesController < ApplicationController
     end
 
     def serialize_employee query, options
-      EmployeeSerializer.new(query, options).serialized_json
+      EmployeeSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

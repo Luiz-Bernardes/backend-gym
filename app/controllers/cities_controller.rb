@@ -44,7 +44,7 @@ class CitiesController < ApplicationController
     end
 
     def serialize_city query, options
-      CitySerializer.new(query, options).serialized_json
+      CitySerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

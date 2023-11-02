@@ -49,7 +49,7 @@ class GymsController < ApplicationController
 	  end
 
 	  def serialize_gym query, options
-	    GymSerializer.new(query, options).serialized_json
+	    GymSerializer.new(query, options).serializable_hash.to_json
 	  end
 
 	  # Only allow a trusted parameter "white list" through.

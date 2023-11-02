@@ -1,5 +1,5 @@
 class GymSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
   attributes :name, :cnpj
 
   has_many :emails, serializer: EmailSerializer

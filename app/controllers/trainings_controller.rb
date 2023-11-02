@@ -47,7 +47,7 @@ class TrainingsController < ApplicationController
     end
 
     def serialize_training query, options
-      TrainingSerializer.new(query, options).serialized_json
+      TrainingSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

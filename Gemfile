@@ -12,7 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "puma", ">= 5.0"
 
 # Jsonapi
-gem 'fast_jsonapi'
+gem 'jsonapi-serializer'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"

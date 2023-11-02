@@ -1,4 +1,4 @@
 class EmailSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
   attributes :address, :gym, :user
 end

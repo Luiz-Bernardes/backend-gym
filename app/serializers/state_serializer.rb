@@ -1,5 +1,5 @@
 class StateSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
   attributes :name, :uf
 
   has_many :cities, serializer: CitySerializer

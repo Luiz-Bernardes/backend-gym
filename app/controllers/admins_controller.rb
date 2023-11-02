@@ -44,7 +44,7 @@ class AdminsController < ApplicationController
     end
 
     def serialize_admin query, options
-      AdminSerializer.new(query, options).serialized_json
+      AdminSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

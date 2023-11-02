@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def serialize_user query, options
-      UserSerializer.new(query, options).serialized_json
+      UserSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

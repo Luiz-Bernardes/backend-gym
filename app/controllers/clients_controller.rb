@@ -44,7 +44,7 @@ class ClientsController < ApplicationController
     end
 
     def serialize_client query, options
-      ClientSerializer.new(query, options).serialized_json
+      ClientSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

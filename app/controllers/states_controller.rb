@@ -44,7 +44,7 @@ class StatesController < ApplicationController
     end
 
     def serialize_state query, options
-      StateSerializer.new(query, options).serialized_json
+      StateSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

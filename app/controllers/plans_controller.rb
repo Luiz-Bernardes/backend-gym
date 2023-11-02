@@ -44,7 +44,7 @@ class PlansController < ApplicationController
     end
 
     def serialize_plan query, options
-      PlanSerializer.new(query, options).serialized_json
+      PlanSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

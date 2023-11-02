@@ -44,7 +44,7 @@ class TelephonesController < ApplicationController
     end
 
     def serialize_telephone query, options
-      TelephoneSerializer.new(query, options).serialized_json
+      TelephoneSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

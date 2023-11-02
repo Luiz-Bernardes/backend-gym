@@ -44,7 +44,7 @@ class EmailsController < ApplicationController
     end
 
     def serialize_email query, options
-      EmailSerializer.new(query, options).serialized_json
+      EmailSerializer.new(query, options).serializable_hash.to_json
     end
 
     # Only allow a trusted parameter "white list" through.

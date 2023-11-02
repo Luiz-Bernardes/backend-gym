@@ -1,4 +1,4 @@
 class TelephoneSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
   attributes :number, :gym, :user
 end

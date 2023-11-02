@@ -1,5 +1,5 @@
 class PlanSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
   attributes :name, :price
 
   has_many :users, serializer: UserSerializer
