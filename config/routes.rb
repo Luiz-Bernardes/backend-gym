@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   resources :clients, only: [:index, :show, :update, :create]
   resources :admins, only: [:index, :show, :update, :create]
   resources :employees, only: [:index, :show, :update, :create]
+  resources :exercises
   
   resources :records, only: [:index, :show, :update, :create] do
     resources :trainings
-    resources :exercises
   end
 
   resources :training_exercises

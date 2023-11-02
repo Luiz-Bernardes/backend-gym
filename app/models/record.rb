@@ -4,10 +4,9 @@ class Record < ApplicationRecord
 
 	# ASSOCIATIONS
 	has_many :trainings
-	has_many :exercises
 	belongs_to :client
 	belongs_to :employee, optional: true 
 
 	# NESTED ATTRS
-	accepts_nested_attributes_for :trainings, :exercises
+	accepts_nested_attributes_for :trainings
 end

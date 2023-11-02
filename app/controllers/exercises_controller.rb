@@ -1,18 +1,18 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :update, :destroy]
 
-  # GET /records/:record_id/exercises
+  # GET /exercises
   def index
-    @exercises = Exercise.where(record_id: params[:record_id])
+    @exercises = Exercise.all
     render json: serialize_exercise(@exercises, options)
   end
 
-  # GET /records/:record_id/exercises/1
+  # GET /exercises/1
   def show
     render json: serialize_exercise(@exercise, options)
   end
 
-  # POST /records/:record_id/exercises
+  # POST /exercises
   def create
     @exercise = Exercise.new(exercise_params)
 
@@ -23,7 +23,7 @@ class ExercisesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /records/:record_id/exercises/1
+  # PATCH/PUT /exercises/1
   def update
     if @exercise.update(exercise_params)
       render json: serialize_exercise(@exercise, options)
@@ -32,7 +32,7 @@ class ExercisesController < ApplicationController
     end
   end
 
-  # DELETE /records/:record_id/exercises/1
+  # DELETE /exercises/1
   def destroy
     @exercise.destroy
   end
@@ -40,10 +40,7 @@ class ExercisesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exercise
-      @exercise = Exercise.find_by(
-        id: params[:id], 
-        record_id: params[:record_id]
-      )
+      @exercise = Exercise.find_by(id: params[:id])
     end
 
     def serialize_exercise query, options
@@ -52,7 +49,7 @@ class ExercisesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def exercise_params
-      params.require(:exercise).permit(:name, :record_id)
+      params.require(:exercise).permit(:name)
     end
 
     def options

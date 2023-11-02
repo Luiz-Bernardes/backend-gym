@@ -55,11 +55,15 @@ class RecordsController < ApplicationController
         :goal,
         :interval,
         :client_id,
-        :employee_id
+        :employee_id,
+        trainings_attributes: [
+          :name,
+          training_exercises_attributes: [:exercise_id]
+        ]
       )
     end
 
     def options
-      @options ||= { include: %i[trainings exercises] } 
+      @options ||= { include: %i[trainings] } 
     end
 end
