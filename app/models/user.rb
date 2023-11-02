@@ -8,4 +8,7 @@ class User < ApplicationRecord
 	has_many :locations
 	belongs_to :gym
 	belongs_to :plan, optional: true 
+
+	# NESTED ATTRS
+	accepts_nested_attributes_for :emails, :telephones, :locations
 end

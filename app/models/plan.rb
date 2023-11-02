@@ -4,4 +4,7 @@ class Plan < ApplicationRecord
 
 	# ASSOCIATIONS
 	has_many :users
+
+	# NESTED ATTRS
+	accepts_nested_attributes_for :users
 end

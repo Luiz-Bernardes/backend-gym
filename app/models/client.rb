@@ -7,4 +7,7 @@ class Client < User
 
 	# ASSOCIATIONS
 	has_many :records
+
+	# NESTED ATTRS
+	accepts_nested_attributes_for :records
 end

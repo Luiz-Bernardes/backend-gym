@@ -6,4 +6,7 @@ class Exercise < ApplicationRecord
 	belongs_to :record
 	has_many :training_exercises
   has_many :trainings, through: :training_exercises
+
+  # NESTED ATTRS
+	accepts_nested_attributes_for :trainings, :training_exercises
 end
