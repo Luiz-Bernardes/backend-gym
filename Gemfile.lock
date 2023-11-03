@@ -85,9 +85,15 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
+    diff-lcs (1.5.0)
     drb (2.1.1)
       ruby2_keywords
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -96,6 +102,9 @@ GEM
     irb (1.8.3)
       rdoc
       reline (>= 0.3.8)
+    json_matchers (0.11.1)
+      json_schema
+    json_schema (0.21.0)
     jsonapi-serializer (2.2.0)
       activesupport (>= 4.2)
     jwt (2.7.1)
@@ -178,7 +187,27 @@ GEM
       psych (>= 4.0.0)
     reline (0.3.9)
       io-console (~> 0.5)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-json_expectations (2.2.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (4.1.2)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
+    rspec-support (3.12.1)
     ruby2_keywords (0.0.5)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     stringio (3.0.8)
     thor (1.3.0)
     timeout (0.4.0)
@@ -198,12 +227,17 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   byebug
+  factory_bot_rails
+  json_matchers
   jsonapi-serializer
   jwt
   pg (>= 0.18, < 2.0)
   puma (>= 5.0)
   rack-cors
   rails (~> 7.1.1)
+  rspec-json_expectations
+  rspec-rails (~> 4.1.0)
+  shoulda-matchers (~> 5.0)
   tzinfo-data
 
 RUBY VERSION
