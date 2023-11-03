@@ -1,24 +1,52 @@
-# README
+# Backend Gym
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Api para o projeto de academia
 
-Things you may want to cover:
 
-* Ruby version
+### 📋 Pré-requisitos
 
-* System dependencies
+Ruby versão 2.7.0
+Banco de dados PostgreSQL
 
-* Configuration
+### 🔧 Instalação
 
-* Database creation
+```
+rails db:drop db:create db:migrate db:seed
+```
 
-* Database initialization
+## ⚙️ Executando os testes
 
-* How to run the test suite
+Para testar todos os componentes:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rspec spec/
+```
 
-* Deployment instructions
+Para testar somente models: 
 
-* ...
+```
+rspec spec/models/
+```
+
+Para testar somente controllers:
+
+```
+rspec spec/controllers/
+```
+
+Para testar somente requests:
+
+```
+rspec spec/requests/
+```
+
+Para testar qualquer arquivo em específico, nome do arquivo após a '/'. Para testar método em uma linha específica, :numero_da_linha, aṕos nome do arquivo.
+
+## ✒️ Autores
+
+* **Luiz Henrique** - *Backend* - [github](https://github.com/Luiz-Bernardes/)
+* **Raphael** - *Frontend* - [github](https://github.com/0x7266)
+
+## 📄 Licença
+
+Este projeto está sob a licença - veja o arquivo [LICENSE.md] para detalhes.
