@@ -2,11 +2,10 @@
 
 Api para o projeto de academia
 
-
 ### 📋 Pré-requisitos
 
-Ruby versão 2.7.0
-Banco de dados PostgreSQL
+* Ruby versão 2.7.0
+* Banco de dados PostgreSQL
 
 ### 🔧 Instalação
 
