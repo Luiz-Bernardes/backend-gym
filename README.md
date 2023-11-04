@@ -44,7 +44,7 @@ Para testar qualquer arquivo em específico, nome do arquivo após a '/'. Para t
 ## ✒️ Autores
 
 * **Luiz Henrique** - *Backend* - [github](https://github.com/Luiz-Bernardes/)
-* **Raphael** - *Frontend* - [github](https://github.com/0x7266)
+* **Rafael** - *Frontend* - [github](https://github.com/0x7266)
 
 ## 📄 Licença
 
