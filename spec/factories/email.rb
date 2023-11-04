@@ -9,7 +9,7 @@ FactoryBot.define do
 		gym
 	end
 
-	# factory :email_from_user, parent: :email do
-	# 	user
-	# end
+	factory :email_from_user, parent: :email do
+		user
+	end
 end

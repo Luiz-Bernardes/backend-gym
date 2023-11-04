@@ -4,7 +4,7 @@ RSpec.describe Email, type: :model do
   before(:each) do 
     @email = create(:email)
     @email_from_gym = create(:email_from_gym)
-    # @email_from_user = create(:email_from_user)
+    @email_from_user = create(:email_from_user)
   end
 
   context 'Create validation' do
@@ -24,9 +24,9 @@ RSpec.describe Email, type: :model do
     it 'is expected to validate that :gym class eq Gym' do 
       expect(@email_from_gym.gym.class).to eq(Gym)
     end
-    # it 'is expected to validate that :user class eq User' do 
-    #   expect(@email_from_user.user.class).to eq(User)
-    # end
+    it 'is expected to validate that :user class eq User' do 
+      expect(@email_from_user.user.class).to eq(User)
+    end
   end
   
 end

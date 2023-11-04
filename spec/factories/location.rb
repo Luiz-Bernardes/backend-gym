@@ -13,7 +13,7 @@ FactoryBot.define do
 		gym
 	end
 
-	# factory :location_from_user, parent: :location do
-	# 	user
-	# end
+	factory :location_from_user, parent: :location do
+		user
+	end
 end

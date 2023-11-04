@@ -9,7 +9,7 @@ FactoryBot.define do
 		gym
 	end
 
-	# factory :telephone_from_user, parent: :telephone do
-	# 	user
-	# end
+	factory :telephone_from_user, parent: :telephone do
+		user
+	end
 end

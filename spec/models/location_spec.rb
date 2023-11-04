@@ -4,7 +4,7 @@ RSpec.describe Location, type: :model do
   before(:each) do 
     @location = create(:location)
     @location_from_gym = create(:location_from_gym)
-    # @location_from_user = create(:location_from_user)
+    @location_from_user = create(:location_from_user)
   end
 
   context 'Create validation' do
@@ -41,6 +41,9 @@ RSpec.describe Location, type: :model do
     end
     it 'is expected to validate that :gym class eq Gym' do 
       expect(@location_from_gym.gym.class).to eq(Gym)
+    end
+    it 'is expected to validate that :user class eq User' do 
+      expect(@location_from_user.user.class).to eq(User)
     end
   end
   
