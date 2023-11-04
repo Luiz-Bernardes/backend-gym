@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :city do
-		name { "Campos dos Goytacazes" }
+		name { Faker::Address.city }
 		state
 	end
 end

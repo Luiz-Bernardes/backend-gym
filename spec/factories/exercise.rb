@@ -1,7 +1,9 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :exercise do
-		name { "Exercício 1" }
-		qnt_series { 5 }
-		qnt_repetitions { 10 }
+		name { Faker::FunnyName.name }
+		qnt_series { Faker::Number.digit }
+		qnt_repetitions { Faker::Number.digit }
 	end
 end

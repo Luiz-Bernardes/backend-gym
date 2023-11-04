@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :state do
-		name { "Rio de Janeiro" }
-		uf { "RJ" }
+		name { Faker::Address.state }
+		uf { Faker::Address.state_abbr }
 	end
 end

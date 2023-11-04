@@ -1,9 +1,11 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :location do
-		address { "Rua A" }
-		number { "1111" }
-		neighborhood { "Centro" }
-		complement { "Casa" }
+		address { Faker::Address.street_name }
+		number { Faker::Address.building_number }
+		neighborhood { Faker::Address.community }
+		complement { Faker::Address.secondary_address }
 		city
 	end
 

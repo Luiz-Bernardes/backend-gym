@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :user do
-		name { "Nome" }
+		name { Faker::Name.name }
 		gym
 	end
 end

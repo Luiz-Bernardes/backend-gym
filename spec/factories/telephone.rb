@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :telephone do
-		number { "(22)98888-7777" }
+		number { Faker::PhoneNumber.cell_phone }
 	end
 
 	factory :telephone_from_gym, parent: :telephone do

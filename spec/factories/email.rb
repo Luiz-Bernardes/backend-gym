@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryBot.define do
 	factory :email do
-		address { "email@mail.com" }
+		address { Faker::Internet.email }
 	end
 
 	factory :email_from_gym, parent: :email do
