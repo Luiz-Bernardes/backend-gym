@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe ExercisesController, type: :controller do
+  before(:each) do 
+    @exercise = create(:exercise)
+  end
+
   it "GET /index" do
     get :index
     expect(response).to have_http_status(200)
   end
 
   it "GET /show" do
-    exercise = create(:exercise)
-    get :show, params: { id: exercise.id }
+    get :show, params: { id: @exercise.id }
     expect(response).to have_http_status(200)
   end
 
@@ -23,14 +26,12 @@ RSpec.describe ExercisesController, type: :controller do
 
   it "PUT /update" do
     exercise_params = attributes_for(:exercise)
-    exercise = create(:exercise)
-    put :update, params: { id: exercise.id, exercise: exercise_params  }
+    put :update, params: { id: @exercise.id, exercise: exercise_params  }
     expect(response).to have_http_status(200)
   end
 
   it "DELETE /destroy" do
-    exercise = create(:exercise)
-    delete :destroy, params: { id: exercise.id }
+    delete :destroy, params: { id: @exercise.id }
     expect(response).to have_http_status(204)
   end
 end

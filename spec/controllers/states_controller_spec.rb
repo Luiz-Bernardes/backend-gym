@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe StatesController, type: :controller do
+  before(:each) do 
+    @state = create(:state)
+  end
+
   it "GET /index" do
     get :index
     expect(response).to have_http_status(200)
   end
 
   it "GET /show" do
-    state = create(:state)
-    get :show, params: { id: state.id }
+    get :show, params: { id: @state.id }
     expect(response).to have_http_status(200)
   end
 
@@ -23,8 +26,7 @@ RSpec.describe StatesController, type: :controller do
 
   it "PUT /update" do
     state_params = attributes_for(:state)
-    state = create(:state)
-    put :update, params: { id: state.id, state: state_params  }
+    put :update, params: { id: @state.id, state: state_params  }
     expect(response).to have_http_status(200)
   end  
 end

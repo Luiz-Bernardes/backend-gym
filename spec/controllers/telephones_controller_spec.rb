@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe TelephonesController, type: :controller do
+  before(:each) do 
+    @telephone = create(:telephone)
+  end
+
   it "GET /index" do
     get :index
     expect(response).to have_http_status(200)
   end
 
   it "GET /show" do
-    telephone = create(:telephone)
-    get :show, params: { id: telephone.id }
+    get :show, params: { id: @telephone.id }
     expect(response).to have_http_status(200)
   end
 
@@ -23,14 +26,12 @@ RSpec.describe TelephonesController, type: :controller do
 
   it "PUT /update" do
     telephone_params = attributes_for(:telephone)
-    telephone = create(:telephone)
-    put :update, params: { id: telephone.id, telephone: telephone_params  }
+    put :update, params: { id: @telephone.id, telephone: telephone_params  }
     expect(response).to have_http_status(200)
   end
 
   it "DELETE /destroy" do
-    telephone = create(:telephone)
-    delete :destroy, params: { id: telephone.id }
+    delete :destroy, params: { id: @telephone.id }
     expect(response).to have_http_status(204)
   end
 end

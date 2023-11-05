@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe EmailsController, type: :controller do
+  before(:each) do 
+    @email = create(:email)
+  end
+
   it "GET /index" do
     get :index
     expect(response).to have_http_status(200)
   end
 
   it "GET /show" do
-    email = create(:email)
-    get :show, params: { id: email.id }
+    get :show, params: { id: @email.id }
     expect(response).to have_http_status(200)
   end
 
@@ -23,14 +26,12 @@ RSpec.describe EmailsController, type: :controller do
 
   it "PUT /update" do
     email_params = attributes_for(:email)
-    email = create(:email)
-    put :update, params: { id: email.id, email: email_params  }
+    put :update, params: { id: @email.id, email: email_params  }
     expect(response).to have_http_status(200)
   end
 
   it "DELETE /destroy" do
-    email = create(:email)
-    delete :destroy, params: { id: email.id }
+    delete :destroy, params: { id: @email.id }
     expect(response).to have_http_status(204)
   end
 end

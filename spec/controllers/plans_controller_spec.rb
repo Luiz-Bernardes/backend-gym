@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe PlansController, type: :controller do
+  before(:each) do 
+    @plan = create(:plan)
+  end
+
   it "GET /index" do
     get :index
     expect(response).to have_http_status(200)
   end
 
   it "GET /show" do
-    plan = create(:plan)
-    get :show, params: { id: plan.id }
+    get :show, params: { id: @plan.id }
     expect(response).to have_http_status(200)
   end
 
@@ -23,14 +26,12 @@ RSpec.describe PlansController, type: :controller do
 
   it "PUT /update" do
     plan_params = attributes_for(:plan)
-    plan = create(:plan)
-    put :update, params: { id: plan.id, plan: plan_params  }
+    put :update, params: { id: @plan.id, plan: plan_params  }
     expect(response).to have_http_status(200)
   end
 
   it "DELETE /destroy" do
-    plan = create(:plan)
-    delete :destroy, params: { id: plan.id }
+    delete :destroy, params: { id: @plan.id }
     expect(response).to have_http_status(204)
   end
 end
