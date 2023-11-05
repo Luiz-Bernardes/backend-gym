@@ -4,6 +4,7 @@ class Plan < ApplicationRecord
 
 	# ASSOCIATIONS
 	has_many :users
+	belongs_to :gym, optional: true 
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :users
