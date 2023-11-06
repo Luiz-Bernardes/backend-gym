@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "region": {
+      "required": ["id", "name", "cnpj", "slug"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "cnpj" : {"type": "string"},
+        "slug" : {"type": "string"}
+      }
+    }
+  }
+}
