@@ -1,29 +1,29 @@
-class RecordsController < ApplicationController
+class Api::V1::RecordsController < Api::V1::ApplicationController
   before_action :set_record, only: [:show, :update, :destroy]
 
-  # GET /records
+  # GET /api/v1/records
   def index
     @records = Record.all
     render json: serialize_record(@records, options)
   end
 
-  # GET /records/1
+  # GET /api/v1/records/1
   def show
     render json: serialize_record(@record, options)
   end
 
-  # POST /records
+  # POST /api/v1/records
   def create
     @record = Record.new(record_params)
 
     if @record.save
-      render json: serialize_record(@record, options), status: :created, location: @record
+      render json: serialize_record(@record, options), status: :created
     else
       render json: @record.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /records/1
+  # PATCH/PUT /api/v1/records/1
   def update
     if @record.update(record_params)
       render json: serialize_record(@record, options)
@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
     end
   end
 
-  # DELETE /records/1
+  # DELETE /api/v1/records/1
   def destroy
     @record.destroy
   end

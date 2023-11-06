@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TrainingsController, type: :controller do
+RSpec.describe Api::V1::TrainingsController, type: :controller do
   before(:each) do 
     @record = create(:record)
     @training = create(:training)

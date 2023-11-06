@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EmployeesController, type: :controller do
+RSpec.describe Api::V1::EmployeesController, type: :controller do
   before(:each) do 
     @employee = create(:employee)
     @gym = create(:gym)

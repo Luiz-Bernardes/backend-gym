@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CitiesController, type: :controller do
+RSpec.describe Api::V1::CitiesController, type: :controller do
   before(:each) do 
     @city = create(:city)
     @state = create(:state)

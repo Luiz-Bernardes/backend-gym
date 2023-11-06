@@ -1,29 +1,29 @@
-class TelephonesController < ApplicationController
+class Api::V1::TelephonesController < Api::V1::ApplicationController
   before_action :set_telephone, only: [:show, :update, :destroy]
 
-  # GET /telephones
+  # GET /api/v1/telephones
   def index
     @telephones = Telephone.all
     render json: serialize_telephone(@telephones, options)
   end
 
-  # GET /telephones/1
+  # GET /api/v1/telephones/1
   def show
     render json: serialize_telephone(@telephone, options)
   end
 
-  # POST /telephones
+  # POST /api/v1/telephones
   def create
     @telephone = Telephone.new(telephone_params)
 
     if @telephone.save
-      render json: serialize_telephone(@telephone, options), status: :created, location: @telephone
+      render json: serialize_telephone(@telephone, options), status: :created
     else
       render json: @telephone.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /telephones/1
+  # PATCH/PUT /api/v1/telephones/1
   def update
     if @telephone.update(telephone_params)
       render json: serialize_telephone(@telephone, options)
@@ -32,7 +32,7 @@ class TelephonesController < ApplicationController
     end
   end
 
-  # DELETE /telephones/1
+  # DELETE /api/v1/telephones/1
   def destroy
     @telephone.destroy
   end

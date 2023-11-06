@@ -1,29 +1,29 @@
-class LocationsController < ApplicationController
+class Api::V1::LocationsController < Api::V1::ApplicationController
   before_action :set_location, only: [:show, :update, :destroy]
 
-  # GET /locations
+  # GET /api/v1/locations
   def index
     @locations = Location.all
     render json: serialize_location(@locations, options)
   end
 
-  # GET /locations/1
+  # GET /api/v1/locations/1
   def show
     render json: serialize_location(@location, options)
   end
 
-  # POST /locations
+  # POST /api/v1/locations
   def create
     @location = Location.new(location_params)
 
     if @location.save
-      render json: serialize_location(@location, options), status: :created, location: @location
+      render json: serialize_location(@location, options), status: :created
     else
       render json: @location.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /locations/1
+  # PATCH/PUT /api/v1/locations/1
   def update
     if @location.update(location_params)
       render json: serialize_location(@location, options)
@@ -32,7 +32,7 @@ class LocationsController < ApplicationController
     end
   end
 
-  # DELETE /locations/1
+  # DELETE /api/v1/locations/1
   def destroy
     @location.destroy
   end

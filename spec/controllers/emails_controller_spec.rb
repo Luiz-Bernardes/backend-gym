@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EmailsController, type: :controller do
+RSpec.describe Api::V1::EmailsController, type: :controller do
   before(:each) do 
     @email = create(:email)
   end

@@ -1,29 +1,29 @@
-class StatesController < ApplicationController
+class Api::V1::StatesController < Api::V1::ApplicationController
   before_action :set_state, only: [:show, :update, :destroy]
 
-  # GET /states
+  # GET /api/v1/states
   def index
     @states = State.all
     render json: serialize_state(@states, options)
   end
 
-  # GET /states/1
+  # GET /api/v1/states/1
   def show
     render json: serialize_state(@state, options)
   end
 
-  # POST /states
+  # POST /api/v1/states
   def create
     @state = State.new(state_params)
 
     if @state.save
-      render json: serialize_state(@state, options), status: :created, location: @state
+      render json: serialize_state(@state, options), status: :created
     else
       render json: @state.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /states/1
+  # PATCH/PUT /api/v1/states/1
   def update
     if @state.update(state_params)
       render json: serialize_state(@state, options)
@@ -32,7 +32,7 @@ class StatesController < ApplicationController
     end
   end
 
-  # DELETE /states/1
+  # DELETE /api/v1/states/1
   def destroy
     @state.destroy
   end

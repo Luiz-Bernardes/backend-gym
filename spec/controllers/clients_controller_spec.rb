@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClientsController, type: :controller do
+RSpec.describe Api::V1::ClientsController, type: :controller do
   before(:each) do 
     @client = create(:client)
     @gym = create(:gym)

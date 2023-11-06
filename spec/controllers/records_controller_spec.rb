@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RecordsController, type: :controller do
+RSpec.describe Api::V1::RecordsController, type: :controller do
   before(:each) do 
     @record = create(:record)
     @client = create(:client)

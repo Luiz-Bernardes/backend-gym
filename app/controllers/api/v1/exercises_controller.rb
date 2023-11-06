@@ -1,18 +1,18 @@
-class ExercisesController < ApplicationController
+class Api::V1::ExercisesController < Api::V1::ApplicationController
   before_action :set_exercise, only: [:show, :update, :destroy]
 
-  # GET /exercises
+  # GET /api/v1/exercises
   def index
     @exercises = Exercise.all
     render json: serialize_exercise(@exercises, options)
   end
 
-  # GET /exercises/1
+  # GET /api/v1/exercises/1
   def show
     render json: serialize_exercise(@exercise, options)
   end
 
-  # POST /exercises
+  # POST /api/v1/exercises
   def create
     @exercise = Exercise.new(exercise_params)
 
@@ -23,7 +23,7 @@ class ExercisesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /exercises/1
+  # PATCH/PUT /api/v1/exercises/1
   def update
     if @exercise.update(exercise_params)
       render json: serialize_exercise(@exercise, options)
@@ -32,7 +32,7 @@ class ExercisesController < ApplicationController
     end
   end
 
-  # DELETE /exercises/1
+  # DELETE /api/v1/exercises/1
   def destroy
     @exercise.destroy
   end

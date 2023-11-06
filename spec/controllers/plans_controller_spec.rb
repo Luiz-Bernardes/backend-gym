@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PlansController, type: :controller do
+RSpec.describe Api::V1::PlansController, type: :controller do
   before(:each) do 
     @plan = create(:plan)
   end

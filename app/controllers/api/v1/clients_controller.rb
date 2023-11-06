@@ -1,29 +1,29 @@
-class ClientsController < ApplicationController
+class Api::V1::ClientsController < Api::V1::ApplicationController
   before_action :set_client, only: [:show, :update, :destroy]
 
-  # GET /clients
+  # GET /api/v1/clients
   def index
     @clients = Client.all
     render json: serialize_client(@clients, options)
   end
 
-  # GET /clients/1
+  # GET /api/v1/clients/1
   def show
     render json: serialize_client(@client, options)
   end
 
-  # POST /clients
+  # POST /api/v1/clients
   def create
     @client = Client.new(client_params)
 
     if @client.save
-      render json: serialize_client(@client, options), status: :created, location: @client
+      render json: serialize_client(@client, options), status: :created
     else
       render json: @client.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /clients/1
+  # PATCH/PUT /api/v1/clients/1
   def update
     if @client.update(client_params)
       render json: serialize_client(@client, options)
@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
     end
   end
 
-  # DELETE /clients/1
+  # DELETE /api/v1/clients/1
   def destroy
     @client.destroy
   end

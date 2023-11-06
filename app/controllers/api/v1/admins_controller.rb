@@ -1,29 +1,29 @@
-class AdminsController < ApplicationController
+class Api::V1::AdminsController < Api::V1::ApplicationController
   before_action :set_admin, only: [:show, :update, :destroy]
 
-  # GET /admins
+  # GET /api/v1/admins
   def index
     @admins = Admin.all
     render json: serialize_admin(@admins, options)
   end
 
-  # GET /admins/1
+  # GET /api/v1/admins/1
   def show
     render json: serialize_admin(@admin, options)
   end
 
-  # POST /admins
+  # POST /api/v1/admins
   def create
     @admin = Admin.new(admin_params)
 
     if @admin.save
-      render json: serialize_admin(@admin, options), status: :created, location: @admin
+      render json: serialize_admin(@admin, options), status: :created
     else
       render json: @admin.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /admins/1
+  # PATCH/PUT /api/v1/admins/1
   def update
     if @admin.update(admin_params)
       render json: serialize_admin(@admin, options)
@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
     end
   end
 
-  # DELETE /admins/1
+  # DELETE /api/v1/admins/1
   def destroy
     @admin.destroy
   end

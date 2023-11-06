@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AdminsController, type: :controller do
+RSpec.describe Api::V1::AdminsController, type: :controller do
   before(:each) do 
     @admin = create(:admin)
     @gym = create(:gym)

@@ -7,14 +7,14 @@ RSpec.describe "GymsRequest", type: :request do
 
   describe "JSON Schema " do
     it "json is expected to match json schema gym" do
-      get "/gyms/#{@gym.id}.json"
+      get "/api/v1/gyms/#{@gym.id}.json"
       expect(response).to match_json_schema("gym")
     end
   end
 
   describe "GET" do
     it "index is expected response body to include json" do
-      get "/gyms.json"
+      get "/api/v1/gyms.json"
       expect(response.body).to include_json(
         data: [
           {
@@ -30,7 +30,7 @@ RSpec.describe "GymsRequest", type: :request do
     end
 
     it "show is expected response body to include json" do
-      get "/gyms/#{@gym.id}.json"
+      get "/api/v1/gyms/#{@gym.id}.json"
       expect(response.body).to include_json(
         data: {
           id: @gym.id.to_s,
@@ -48,7 +48,7 @@ RSpec.describe "GymsRequest", type: :request do
     it "create is expected response body to include json" do
       headers = { "ACCEPT" => "application/json" }
       gym_params = attributes_for(:gym)
-      post "/gyms.json", params: { gym: gym_params }, headers: headers
+      post "/api/v1/gyms.json", params: { gym: gym_params }, headers: headers
       expect(response.body).to include_json(
         data: {
           id: (@gym.id + INCREMENT).to_s,
@@ -66,7 +66,7 @@ RSpec.describe "GymsRequest", type: :request do
     it "update is expected response body to include json" do
       headers = { "ACCEPT" => "application/json" }
       @gym.name = "Nome alterado"
-      patch "/gyms/#{@gym.id}.json" , params: { gym: @gym.attributes }, headers: headers
+      patch "/api/v1/gyms/#{@gym.id}.json" , params: { gym: @gym.attributes }, headers: headers
       expect(response.body).to include_json(
         data: {
           id: @gym.id.to_s,

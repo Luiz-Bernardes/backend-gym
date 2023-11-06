@@ -1,29 +1,29 @@
-class EmailsController < ApplicationController
+class Api::V1::EmailsController < Api::V1::ApplicationController
   before_action :set_email, only: [:show, :update, :destroy]
 
-  # GET /emails
+  # GET /api/v1/emails
   def index
     @emails = Email.all
     render json: serialize_email(@emails, options)
   end
 
-  # GET /emails/1
+  # GET /api/v1/emails/1
   def show
     render json: serialize_email(@email, options)
   end
 
-  # POST /emails
+  # POST /api/v1/emails
   def create
     @email = Email.new(email_params)
 
     if @email.save
-      render json: serialize_email(@email, options), status: :created, location: @email
+      render json: serialize_email(@email, options), status: :created
     else
       render json: @email.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /emails/1
+  # PATCH/PUT /api/v1/emails/1
   def update
     if @email.update(email_params)
       render json: serialize_email(@email, options)
@@ -32,7 +32,7 @@ class EmailsController < ApplicationController
     end
   end
 
-  # DELETE /emails/1
+  # DELETE /api/v1/emails/1
   def destroy
     @email.destroy
   end

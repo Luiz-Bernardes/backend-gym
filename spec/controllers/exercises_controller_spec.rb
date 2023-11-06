@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ExercisesController, type: :controller do
+RSpec.describe Api::V1::ExercisesController, type: :controller do
   before(:each) do 
     @exercise = create(:exercise)
   end

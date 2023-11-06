@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GymsController, type: :controller do
+RSpec.describe Api::V1::GymsController, type: :controller do
   before(:each) do 
     @gym = create(:gym)
   end

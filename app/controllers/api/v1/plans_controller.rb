@@ -1,29 +1,29 @@
-class PlansController < ApplicationController
+class Api::V1::PlansController < Api::V1::ApplicationController
   before_action :set_plan, only: [:show, :update, :destroy]
 
-  # GET /plans
+  # GET /api/v1/plans
   def index
     @plans = Plan.all
     render json: serialize_plan(@plans, options)
   end
 
-  # GET /plans/1
+  # GET /api/v1/plans/1
   def show
     render json: serialize_plan(@plan, options)
   end
 
-  # POST /plans
+  # POST /api/v1/plans
   def create
     @plan = Plan.new(plan_params)
 
     if @plan.save
-      render json: serialize_plan(@plan, options), status: :created, location: @plan
+      render json: serialize_plan(@plan, options), status: :created
     else
       render json: @plan.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /plans/1
+  # PATCH/PUT /api/v1/plans/1
   def update
     if @plan.update(plan_params)
       render json: serialize_plan(@plan, options)
@@ -32,7 +32,7 @@ class PlansController < ApplicationController
     end
   end
 
-  # DELETE /plans/1
+  # DELETE /api/v1/plans/1
   def destroy
     @plan.destroy
   end

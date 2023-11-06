@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TelephonesController, type: :controller do
+RSpec.describe Api::V1::TelephonesController, type: :controller do
   before(:each) do 
     @telephone = create(:telephone)
   end

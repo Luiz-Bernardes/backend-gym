@@ -1,29 +1,29 @@
-class EmployeesController < ApplicationController
+class Api::V1::EmployeesController < Api::V1::ApplicationController
   before_action :set_employee, only: [:show, :update, :destroy]
 
-  # GET /employees
+  # GET /api/v1/employees
   def index
     @employees = Employee.all
     render json: serialize_employee(@employees, options)
   end
 
-  # GET /employees/1
+  # GET /api/v1/employees/1
   def show
     render json: serialize_employee(@employee, options)
   end
 
-  # POST /employees
+  # POST /api/v1/employees
   def create
     @employee = Employee.new(employee_params)
 
     if @employee.save
-      render json: serialize_employee(@employee, options), status: :created, location: @employee
+      render json: serialize_employee(@employee, options), status: :created
     else
       render json: @employee.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /employees/1
+  # PATCH/PUT /api/v1/employees/1
   def update
     if @employee.update(employee_params)
       render json: serialize_employee(@employee, options)
@@ -32,7 +32,7 @@ class EmployeesController < ApplicationController
     end
   end
 
-  # DELETE /employees/1
+  # DELETE /api/v1/employees/1
   def destroy
     @employee.destroy
   end

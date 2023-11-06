@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LocationsController, type: :controller do
+RSpec.describe Api::V1::LocationsController, type: :controller do
   before(:each) do 
     @location = create(:location)
     @city = create(:city)

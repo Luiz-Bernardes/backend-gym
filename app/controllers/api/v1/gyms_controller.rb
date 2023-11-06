@@ -1,30 +1,30 @@
-class GymsController < ApplicationController
+class Api::V1::GymsController < Api::V1::ApplicationController
 	before_action :set_list_gym, only: [:show]
 	before_action :set_gym, only: [:update, :destroy]
 
-	# GET /gyms
+	# GET /api/v1/gyms
 	def index
 	  @gyms = Gym.all
 	  render json: serialize_gym(@gyms, options)
 	end
 
-	# GET /gyms/1
+	# GET /api/v1/gyms/1
 	def show
 	  render json: serialize_gym(@gym, options)
 	end
 
-	# POST /gyms
+	# POST /api/v1/gyms
 	def create
 	  @gym = Gym.new(gym_params)
 
 	  if @gym.save
-	    render json: serialize_gym(@gym, options), status: :created, location: @gym
+	    render json: serialize_gym(@gym, options), status: :created
 	  else
 	    render json: @gym.errors, status: :unprocessable_entity
 	  end
 	end
 
-	# PATCH/PUT /gyms/1
+	# PATCH/PUT /api/v1/gyms/1
 	def update
 	  if @gym.update(gym_params)
 	    render json: serialize_gym(@gym, options)
@@ -33,7 +33,7 @@ class GymsController < ApplicationController
 	  end
 	end
 
-	# DELETE /gyms/1
+	# DELETE /api/v1/gyms/1
 	def destroy
 	  @gym.destroy
 	end

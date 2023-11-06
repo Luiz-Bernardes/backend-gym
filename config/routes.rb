@@ -8,22 +8,25 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :gyms, only: [:index, :show, :update, :create, :destroy]
-  resources :telephones
-  resources :emails
-  resources :states, only: [:index, :show, :update, :create]
-  resources :cities, only: [:index, :show, :update, :create]
-  resources :locations
-  resources :plans
-  resources :users, only: [:index, :show, :update, :create]
-  resources :clients, only: [:index, :show, :update, :create]
-  resources :admins, only: [:index, :show, :update, :create]
-  resources :employees, only: [:index, :show, :update, :create]
-  resources :exercises
-  
-  resources :records, only: [:index, :show, :update, :create] do
-    resources :trainings
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :gyms, only: [:index, :show, :update, :create, :destroy]
+      resources :telephones
+      resources :emails
+      resources :states, only: [:index, :show, :update, :create]
+      resources :cities, only: [:index, :show, :update, :create]
+      resources :locations
+      resources :plans
+      resources :users, only: [:index, :show, :update, :create]
+      resources :clients, only: [:index, :show, :update, :create]
+      resources :admins, only: [:index, :show, :update, :create]
+      resources :employees, only: [:index, :show, :update, :create]
+      resources :exercises
+      resources :records, only: [:index, :show, :update, :create] do
+        resources :trainings
+      end
+      resources :training_exercises
+    end
   end
 
-  resources :training_exercises
 end
