@@ -21,19 +21,19 @@ Para testar todos os componentes:
 rspec spec/
 ```
 
-Para testar somente models: 
+Para testar somente models: (Validations,associations and methods)
 
 ```
 rspec spec/models/
 ```
 
-Para testar somente controllers:
+Para testar somente controllers: (Routes responses)
 
 ```
-rspec spec/controllers/
+rspec spec/controllers/ 
 ```
 
-Para testar somente requests:
+Para testar somente requests: (Json requests returns)
 
 ```
 rspec spec/requests/
