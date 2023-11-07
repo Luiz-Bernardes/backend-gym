@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "region": {
+      "required": ["id", "name", "uf"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "uf" : {"type": "string"}
+      }
+    }
+  }
+}

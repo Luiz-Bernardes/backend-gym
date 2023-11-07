@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "region": {
+      "required": ["id", "name", "state_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "state_id" : {"type": "integer"}
+      }
+    }
+  }
+}
