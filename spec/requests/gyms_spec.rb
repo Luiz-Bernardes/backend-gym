@@ -49,13 +49,14 @@ RSpec.describe "GymsRequest", type: :request do
       headers = { "ACCEPT" => "application/json" }
       gym_params = attributes_for(:gym)
       post "/api/v1/gyms.json", params: { gym: gym_params }, headers: headers
+      gym = Gym.last
       expect(response.body).to include_json(
         data: {
-          id: (@gym.id + INCREMENT).to_s,
+          id: gym.id.to_s,
           type: "gym",
           attributes: {
-            name: @gym.name,
-            cnpj: @gym.cnpj
+            name: gym.name,
+            cnpj: gym.cnpj
           }
         }
       )

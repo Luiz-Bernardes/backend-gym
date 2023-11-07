@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "region": {
+      "required": ["id", "address", "number", "neighborhood", "city_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "address" : {"type": "string"},
+        "number" : {"type": "string"},
+        "neighborhood" : {"type": "string"},
+        "complement" : {"type": "string"},
+        "gym_id" : {"type": "integer"},
+        "user_id" : {"type": "integer"},
+        "city_id" : {"type": "integer"}
+      }
+    }
+  }
+}

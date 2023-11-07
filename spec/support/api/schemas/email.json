@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "region": {
+      "required": ["id", "address", "gym_id", "user_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "address" : {"type": "string"},
+        "gym_id" : {"type": "integer"},
+        "user_id" : {"type": "integer"}
+      }
+    }
+  }
+}
