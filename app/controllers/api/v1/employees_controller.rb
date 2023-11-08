@@ -49,10 +49,24 @@ class Api::V1::EmployeesController < Api::V1::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def employee_params
-      params.require(:employee).permit(:name, :role, :gym_id, :user_type)
+      params.require(:employee).permit(
+        :name, 
+        :role, 
+        :gym_id, 
+        :user_type,
+        telephones_attributes: [:number],
+        emails_attributes: [:address],
+        locations_attributes: [
+          :address,
+          :number,
+          :neighborhood,
+          :complement,
+          :city_id
+        ]
+      )
     end
 
     def options
-      @options ||= { include: %i[] } 
+      @options ||= { include: %i[telephones emails locations] } 
     end
 end

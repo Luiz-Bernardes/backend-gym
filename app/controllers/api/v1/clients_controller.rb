@@ -57,11 +57,20 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
         :begindate, 
         :plan_id, 
         :gym_id, 
-        :user_type
+        :user_type,
+        telephones_attributes: [:number],
+        emails_attributes: [:address],
+        locations_attributes: [
+          :address,
+          :number,
+          :neighborhood,
+          :complement,
+          :city_id
+        ]
       )
     end
 
     def options
-      @options ||= { include: %i[records] } 
+      @options ||= { include: %i[telephones emails locations records] } 
     end
 end

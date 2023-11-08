@@ -49,10 +49,23 @@ class Api::V1::AdminsController < Api::V1::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def admin_params
-      params.require(:admin).permit(:name, :gym_id, :user_type)
+      params.require(:admin).permit(
+        :name, 
+        :gym_id, 
+        :user_type,
+        telephones_attributes: [:number],
+        emails_attributes: [:address],
+        locations_attributes: [
+          :address,
+          :number,
+          :neighborhood,
+          :complement,
+          :city_id
+        ]
+      )
     end
 
     def options
-      @options ||= { include: %i[] } 
+      @options ||= { include: %i[telephones emails locations] } 
     end
 end

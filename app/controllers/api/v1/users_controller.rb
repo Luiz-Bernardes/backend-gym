@@ -66,6 +66,6 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     end
 
     def options
-      @options ||= { include: %i[] } 
+      @options ||= { include: %i[telephones emails locations] } 
     end
 end
