@@ -1,12 +1,12 @@
 {
   "type": "object",
   "properties": {
-    "state": {
-      "required": ["id", "name", "state_id"],
+    "user": {
+      "required": ["id", "name", "gym_id"],
       "properties": {
         "id" : {"type": "integer"},
         "name" : {"type": "string"},
-        "state_id" : {"type": "integer"}
+        "gym_id" : {"type": "integer"}
       }
     }
   }

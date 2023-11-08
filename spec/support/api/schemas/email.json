@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "region": {
+    "email": {
       "required": ["id", "address", "gym_id", "user_id"],
       "properties": {
         "id" : {"type": "integer"},

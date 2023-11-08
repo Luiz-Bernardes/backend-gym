@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "CitiesRequest", type: :request do
   before(:each) do 
-    @state = create(:state)
-    @city = create(:city, state: @state)
+    @city = create(:city)
   end
 
   describe "JSON Schema " do
@@ -56,7 +55,7 @@ RSpec.describe "CitiesRequest", type: :request do
   describe "POST" do
     it "create is expected response body to include json" do
       headers = { "ACCEPT" => "application/json" }
-      city_params = build(:city, state: @state).attributes
+      city_params = build(:city, state: @city.state).attributes
       post "/api/v1/cities.json", params: { city: city_params }, headers: headers
       city = City.last
       expect(response.body).to include_json(

@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "region": {
+    "gym": {
       "required": ["id", "name", "cnpj", "slug"],
       "properties": {
         "id" : {"type": "integer"},

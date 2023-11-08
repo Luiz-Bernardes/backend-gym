@@ -1,12 +1,13 @@
 {
   "type": "object",
   "properties": {
-    "state": {
-      "required": ["id", "name", "state_id"],
+    "employee": {
+      "required": ["id", "name", "gym_id"],
       "properties": {
         "id" : {"type": "integer"},
         "name" : {"type": "string"},
-        "state_id" : {"type": "integer"}
+        "role" : {"type": "string"},
+        "gym_id" : {"type": "integer"}
       }
     }
   }
