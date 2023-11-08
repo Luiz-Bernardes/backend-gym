@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "client": {
+      "required": ["id", "name", "price"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "price" : {"type": "number"},
+        "gym_id" : {"type": "integer"}
+      }
+    }
+  }
+}
