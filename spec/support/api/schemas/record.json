@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "record": {
+      "required": ["id", "begin_date", "end_date", "client_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "begin_date" : {"type": "string"},
+        "end_date" : {"type": "string"},
+        "goal" : {"type": "string"},
+        "interval" : {"type": "string"},
+        "client_id" : {"type": "integer"},
+        "employee_id" : {"type": "integer"}
+      }
+    }
+  }
+}

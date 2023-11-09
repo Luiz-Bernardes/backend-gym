@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "client": {
+    "plan": {
       "required": ["id", "name", "price"],
       "properties": {
         "id" : {"type": "integer"},
