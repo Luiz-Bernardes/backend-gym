@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::TrainingExercisesController, type: :controller do
   before(:each) do 
     @training_exercise = create(:training_exercise)
-    @training = create(:training)
-    @exercise = create(:exercise)
   end
 
   it "GET /index" do
@@ -18,7 +16,7 @@ RSpec.describe Api::V1::TrainingExercisesController, type: :controller do
   end
 
   it "POST /create" do
-    training_exercise_params = attributes_for(:training_exercise).merge({ training_id: @training.id, exercise_id: @exercise.id })
+    training_exercise_params = attributes_for(:training_exercise).merge({ training_id: @training_exercise.training.id, exercise_id: @training_exercise.exercise.id })
     expect(response).to have_http_status(200)
     expect {
       post :create, 
@@ -27,7 +25,7 @@ RSpec.describe Api::V1::TrainingExercisesController, type: :controller do
   end
 
   it "PUT /update" do
-    training_exercise_params = attributes_for(:training_exercise).merge({ training_id: @training.id, exercise_id: @exercise.id })
+    training_exercise_params = attributes_for(:training_exercise).merge({ training_id: @training_exercise.training.id, exercise_id: @training_exercise.exercise.id })
     put :update, params: { id: @training_exercise.id, training_exercise: training_exercise_params  }
     expect(response).to have_http_status(200)
   end

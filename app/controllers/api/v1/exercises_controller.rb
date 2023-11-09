@@ -49,7 +49,7 @@ class Api::V1::ExercisesController < Api::V1::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def exercise_params
-      params.require(:exercise).permit(:name)
+      params.require(:exercise).permit(:name, :qnt_series, :qnt_repetitions, :gym_id)
     end
 
     def options

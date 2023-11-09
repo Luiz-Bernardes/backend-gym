@@ -16,7 +16,7 @@ RSpec.describe Api::V1::ExercisesController, type: :controller do
   end
 
   it "POST /create" do
-    exercise_params = attributes_for(:exercise)
+    exercise_params = attributes_for(:exercise).merge({ gym_id: @exercise.gym.id})
     expect(response).to have_http_status(200)
     expect {
       post :create, 
@@ -25,7 +25,7 @@ RSpec.describe Api::V1::ExercisesController, type: :controller do
   end
 
   it "PUT /update" do
-    exercise_params = attributes_for(:exercise)
+    exercise_params = attributes_for(:exercise).merge({ gym_id: @exercise.gym.id})
     put :update, params: { id: @exercise.id, exercise: exercise_params  }
     expect(response).to have_http_status(200)
   end

@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "training": {
+      "required": ["id", "name", "record_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "record_id" : {"type": "integer"}
+      }
+    }
+  }
+}

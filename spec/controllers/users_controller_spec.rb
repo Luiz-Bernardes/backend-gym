@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::UsersController, type: :controller do
   before(:each) do 
     @user = create(:user)
-    @gym = create(:gym)
   end
 
   it "GET /index" do
@@ -17,7 +16,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   end
 
   it "POST /create" do
-    user_params = attributes_for(:user).merge({ gym_id: @gym.id})
+    user_params = attributes_for(:user).merge({ gym_id: @user.gym.id})
     expect(response).to have_http_status(200)
     expect {
       post :create, 
@@ -26,7 +25,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   end
 
   it "PUT /update" do
-    user_params = attributes_for(:user).merge({ gym_id: @gym.id})
+    user_params = attributes_for(:user).merge({ gym_id: @user.gym.id})
     put :update, params: { id: @user.id, user: user_params  }
     expect(response).to have_http_status(200)
   end

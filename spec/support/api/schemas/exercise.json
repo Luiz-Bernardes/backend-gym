@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "exercise": {
+      "required": ["id", "name"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "qnt_series" : {"type": "integer"},
+        "qnt_repetitions" : {"type": "integer"}
+      }
+    }
+  }
+}

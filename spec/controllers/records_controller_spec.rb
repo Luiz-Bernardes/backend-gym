@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::RecordsController, type: :controller do
   before(:each) do 
     @record = create(:record)
-    @client = create(:client)
   end
 
   it "GET /index" do
@@ -17,7 +16,7 @@ RSpec.describe Api::V1::RecordsController, type: :controller do
   end
 
   it "POST /create" do
-    record_params = attributes_for(:record).merge({ client_id: @client.id})
+    record_params = attributes_for(:record).merge({ client_id: @record.client.id})
     expect(response).to have_http_status(200)
     expect {
       post :create, 
@@ -26,7 +25,7 @@ RSpec.describe Api::V1::RecordsController, type: :controller do
   end
 
   it "PUT /update" do
-    record_params = attributes_for(:record).merge({ client_id: @client.id})
+    record_params = attributes_for(:record).merge({ client_id: @record.client.id})
     put :update, params: { id: @record.id, record: record_params  }
     expect(response).to have_http_status(200)
   end

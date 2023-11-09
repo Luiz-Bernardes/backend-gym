@@ -5,5 +5,6 @@ FactoryBot.define do
 		name { Faker::FunnyName.name }
 		qnt_series { Faker::Number.digit }
 		qnt_repetitions { Faker::Number.digit }
+		gym
 	end
 end

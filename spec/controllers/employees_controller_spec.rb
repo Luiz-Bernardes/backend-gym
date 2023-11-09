@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::EmployeesController, type: :controller do
   before(:each) do 
     @employee = create(:employee)
-    @gym = create(:gym)
   end
 
   it "GET /index" do
@@ -17,7 +16,7 @@ RSpec.describe Api::V1::EmployeesController, type: :controller do
   end
 
   it "POST /create" do
-    employee_params = attributes_for(:employee).merge({ gym_id: @gym.id})
+    employee_params = attributes_for(:employee).merge({ gym_id: @employee.gym.id})
     expect(response).to have_http_status(200)
     expect {
       post :create, 
@@ -26,7 +25,7 @@ RSpec.describe Api::V1::EmployeesController, type: :controller do
   end
 
   it "PUT /update" do
-    employee_params = attributes_for(:employee).merge({ gym_id: @gym.id})
+    employee_params = attributes_for(:employee).merge({ gym_id: @employee.gym.id})
     put :update, params: { id: @employee.id, employee: employee_params  }
     expect(response).to have_http_status(200)
   end

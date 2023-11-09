@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::CitiesController, type: :controller do
   before(:each) do 
     @city = create(:city)
-    @state = create(:state)
   end
 
   it "GET /index" do
@@ -17,7 +16,7 @@ RSpec.describe Api::V1::CitiesController, type: :controller do
   end
 
   it "POST /create" do
-    city_params = attributes_for(:city).merge({ state_id: @state.id})
+    city_params = attributes_for(:city).merge({ state_id: @city.state.id})
     expect(response).to have_http_status(200)
     expect {
       post :create, 
@@ -26,7 +25,7 @@ RSpec.describe Api::V1::CitiesController, type: :controller do
   end
 
   it "PUT /update" do
-    city_params = attributes_for(:city).merge({ state_id: @state.id})
+    city_params = attributes_for(:city).merge({ state_id: @city.state.id})
     put :update, params: { id: @city.id, city: city_params  }
     expect(response).to have_http_status(200)
   end
