@@ -3,7 +3,7 @@ class Client < User
 	validates :weight,:height, presence: true
 
 	# SCOPE
-	default_scope { where(user_type: 'client') }
+	default_scope { where(user_type: CLIENT) }
 
 	# ASSOCIATIONS
 	has_many :records

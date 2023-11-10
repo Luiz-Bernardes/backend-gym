@@ -12,4 +12,9 @@ class Gym < ApplicationRecord
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :emails, :telephones, :locations, :users, :exercises
+
+	# METHODS
+	def owner
+		self.users.find_by(user_type: ADMIN)
+	end
 end

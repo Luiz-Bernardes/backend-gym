@@ -1,6 +1,6 @@
 class Employee < User
 	# SCOPE
-	default_scope { where(user_type: 'employee') }
+	default_scope { where(user_type: EMPLOYEE) }
 
 	# ASSOCIATIONS
 	has_many :records
