@@ -23,7 +23,7 @@ namespace :dev do
 
   def spinner message, end_message = 'Done!'
     spinner = TTY::Spinner.new("[:spinner] #{message}")
-    spinner.auto_spin
+    spinner.auto_spin # Automatic animation with default interval
     yield
     spinner.success("(#{end_message})")
   end
