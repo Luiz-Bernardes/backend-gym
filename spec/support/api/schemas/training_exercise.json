@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "training_exercise": {
+      "required": ["id", "training_id", "exercise_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "training_id" : {"type": "integer"},
+        "exercise_id" : {"type": "integer"}
+      }
+    }
+  }
+}
