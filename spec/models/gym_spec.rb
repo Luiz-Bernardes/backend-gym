@@ -36,11 +36,14 @@ RSpec.describe Gym, type: :model do
         expect(gym_by_id.class.name).to eq("Gym")
         expect(gym_by_slug.class.name).to eq("Gym")
       end
+      it '#find_owner' do
+        expect(GymService.find_owner(@gym).name).to eq(@admin.name)
+      end
     end
 
     context 'Model methods' do
       it '#owner' do
-        expect(@gym.owner.name).to eq(@admin.name)
+        expect(@gym.owner[:name]).to eq(@admin.name)
       end
     end
   end

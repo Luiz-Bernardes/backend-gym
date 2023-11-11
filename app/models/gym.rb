@@ -15,6 +15,7 @@ class Gym < ApplicationRecord
 
 	# METHODS
 	def owner
-		self.users.find_by(user_type: ADMIN)
+		owner = GymService.find_owner(self)
+		{ id: owner.id , name: owner.name } unless owner.nil?
 	end
 end
