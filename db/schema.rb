@@ -10,21 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_10_140941) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_12_184311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.integer "state_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "emails", force: :cascade do |t|
-    t.string "address"
-    t.integer "gym_id"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_10_140941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.string "email"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -118,11 +111,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_10_140941) do
     t.string "user_type"
     t.integer "gym_id"
     t.string "role"
-    t.string "email", default: ""
+    t.string "email"
     t.string "encrypted_password", default: ""
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.boolean "allow_password_change", default: false
+    t.string "nickname"
+    t.string "image"
+    t.json "tokens"
     t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

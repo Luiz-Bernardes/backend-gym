@@ -22,15 +22,13 @@ RSpec.describe "ClientsRequest", type: :request do
             type: "client",
             attributes: {
               name: @client.name,
+              email: @client.email,
               weight: @client.weight.to_s,
               height: @client.height.to_s,
               birthdate: @client.birthdate,
               begindate: @client.begindate
             },
             relationships: {
-              emails: {
-                data: []
-              },
               telephones: {
                 data: []
               },
@@ -51,15 +49,13 @@ RSpec.describe "ClientsRequest", type: :request do
           type: "client",
           attributes: {
             name: @client.name,
+            email: @client.email,
             weight: @client.weight.to_s,
             height: @client.height.to_s,
             birthdate: @client.birthdate,
             begindate: @client.begindate
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -85,15 +81,13 @@ RSpec.describe "ClientsRequest", type: :request do
           type: "client",
           attributes: {
             name: client.name,
+            email: client.email,
             weight: client.weight.to_s,
             height: client.height.to_s,
             birthdate: client.birthdate,
             begindate: client.begindate
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -116,15 +110,13 @@ RSpec.describe "ClientsRequest", type: :request do
           type: "client",
           attributes: {
             name: @client.name,
+            email: @client.email,
             weight: @client.weight.to_s,
             height: @client.height.to_s,
             birthdate: @client.birthdate,
             begindate: @client.begindate
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },

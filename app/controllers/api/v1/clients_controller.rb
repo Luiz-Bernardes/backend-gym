@@ -51,6 +51,7 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
     def client_params
       params.require(:client).permit(
         :name, 
+        :email,
         :weight, 
         :height, 
         :birthdate, 
@@ -59,7 +60,6 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
         :gym_id, 
         :user_type,
         telephones_attributes: [:number],
-        emails_attributes: [:address],
         locations_attributes: [
           :address,
           :number,
@@ -71,6 +71,6 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
     end
 
     def options
-      @options ||= { include: %i[telephones emails locations records] } 
+      @options ||= { include: %i[telephones locations records] } 
     end
 end

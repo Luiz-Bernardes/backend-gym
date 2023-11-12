@@ -22,12 +22,10 @@ RSpec.describe "EmployeesRequest", type: :request do
             type: "employee",
             attributes: {
               name: @employee.name,
+              email: @employee.email,
               role: @employee.role
             },
             relationships: {
-              emails: {
-                data: []
-              },
               telephones: {
                 data: []
               },
@@ -48,12 +46,10 @@ RSpec.describe "EmployeesRequest", type: :request do
           type: "employee",
           attributes: {
             name: @employee.name,
+            email: @employee.email,
             role: @employee.role
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -79,12 +75,10 @@ RSpec.describe "EmployeesRequest", type: :request do
           type: "employee",
           attributes: {
             name: employee.name,
+            email: employee.email,
             role: employee.role
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -107,12 +101,10 @@ RSpec.describe "EmployeesRequest", type: :request do
           type: "employee",
           attributes: {
             name: @employee.name,
+            email: @employee.email,
             role: @employee.role
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },

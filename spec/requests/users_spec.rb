@@ -21,12 +21,10 @@ RSpec.describe "UsersRequest", type: :request do
             id: @user.id.to_s,
             type: "user",
             attributes: {
-              name: @user.name
+              name: @user.name,
+              email: @user.email
             },
             relationships: {
-              emails: {
-                data: []
-              },
               telephones: {
                 data: []
               },
@@ -46,12 +44,10 @@ RSpec.describe "UsersRequest", type: :request do
           id: @user.id.to_s,
           type: "user",
           attributes: {
-            name: @user.name
+            name: @user.name,
+            email: @user.email
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -76,12 +72,10 @@ RSpec.describe "UsersRequest", type: :request do
           id: user.id.to_s,
           type: "user",
           attributes: {
-            name: user.name
+            name: user.name,
+            email: user.email
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -103,12 +97,10 @@ RSpec.describe "UsersRequest", type: :request do
           id: @user.id.to_s,
           type: "user",
           attributes: {
-            name: @user.name
+            name: @user.name,
+            email: @user.email
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },

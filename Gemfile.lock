@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/lynndylanhurley/devise_token_auth
+  revision: d4deea1b6ef2e742a74a2b1f0c676e513cc3f443
+  specs:
+    devise_token_auth (1.2.2)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 7.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -245,6 +254,7 @@ DEPENDENCIES
   bootsnap
   byebug
   devise
+  devise_token_auth (>= 1.2.0)!
   factory_bot_rails
   faker
   json_matchers

@@ -21,12 +21,10 @@ RSpec.describe "AdminsRequest", type: :request do
             id: @admin.id.to_s,
             type: "admin",
             attributes: {
-              name: @admin.name
+              name: @admin.name,
+              email: @admin.email
             },
             relationships: {
-              emails: {
-                data: []
-              },
               telephones: {
                 data: []
               },
@@ -46,12 +44,10 @@ RSpec.describe "AdminsRequest", type: :request do
           id: @admin.id.to_s,
           type: "admin",
           attributes: {
-            name: @admin.name
+            name: @admin.name,
+            email: @admin.email
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -76,12 +72,10 @@ RSpec.describe "AdminsRequest", type: :request do
           id: admin.id.to_s,
           type: "admin",
           attributes: {
-            name: admin.name
+            name: admin.name,
+            email: admin.email
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },
@@ -103,12 +97,10 @@ RSpec.describe "AdminsRequest", type: :request do
           id: @admin.id.to_s,
           type: "admin",
           attributes: {
-            name: @admin.name
+            name: @admin.name,
+            email: @admin.email
           },
           relationships: {
-            emails: {
-              data: []
-            },
             telephones: {
               data: []
             },

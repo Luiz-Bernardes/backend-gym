@@ -1,9 +1,8 @@
 class Gym < ApplicationRecord
 	# VALIDATIONS
-	validates :name, presence: true
+	validates :name, :email, presence: true
 
 	# ASSOCIATIONS
-	has_many :emails
 	has_many :telephones
 	has_many :locations
 	has_many :users
@@ -11,7 +10,7 @@ class Gym < ApplicationRecord
 	has_many :exercises
 
 	# NESTED ATTRS
-	accepts_nested_attributes_for :emails, :telephones, :locations, :users, :exercises
+	accepts_nested_attributes_for :telephones, :locations, :users, :exercises
 
 	# METHODS
 	def owner

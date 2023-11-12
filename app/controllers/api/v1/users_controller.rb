@@ -52,9 +52,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     def user_params
       params.require(:user).permit(
         :name, 
+        :email,
         :gym_id,
         telephones_attributes: [:number],
-        emails_attributes: [:address],
         locations_attributes: [
           :address,
           :number,
@@ -67,6 +67,6 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     end
 
     def options
-      @options ||= { include: %i[telephones emails locations] } 
+      @options ||= { include: %i[telephones locations] } 
     end
 end

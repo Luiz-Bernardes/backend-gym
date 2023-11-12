@@ -13,6 +13,7 @@ RSpec.describe User, type: :model do
 
   context 'Presence validations' do
     it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
   end
 
   context 'Association validations' do
@@ -22,6 +23,9 @@ RSpec.describe User, type: :model do
   context 'Class type validations' do
     it 'is expected to validate that :name class eq String' do 
       expect(@user.name.class).to eq(String)
+    end
+    it 'is expected to validate that :email class eq String' do 
+      expect(@user.email.class).to eq(String)
     end
     it 'is expected to validate that :gym class eq Gym' do 
       expect(@user.gym.class).to eq(Gym)

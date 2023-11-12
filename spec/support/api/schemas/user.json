@@ -2,10 +2,11 @@
   "type": "object",
   "properties": {
     "user": {
-      "required": ["id", "name", "gym_id"],
+      "required": ["id", "name", "email", "gym_id"],
       "properties": {
         "id" : {"type": "integer"},
         "name" : {"type": "string"},
+        "email" : {"type": "string"},
         "gym_id" : {"type": "integer"}
       }
     }

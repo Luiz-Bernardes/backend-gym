@@ -13,6 +13,7 @@ RSpec.describe Client, type: :model do
 
   context 'Presence validations' do
     it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
     it { should validate_presence_of(:weight) }
     it { should validate_presence_of(:height) }
   end
@@ -24,6 +25,9 @@ RSpec.describe Client, type: :model do
   context 'Class type validations' do
     it 'is expected to validate that :name class eq String' do 
       expect(@client.name.class).to eq(String)
+    end
+    it 'is expected to validate that :email class eq String' do 
+      expect(@client.email.class).to eq(String)
     end
     it 'is expected to validate that :weight class eq BigDecimal' do 
       expect(@client.weight.class).to eq(BigDecimal)

@@ -54,10 +54,10 @@ class Api::V1::GymsController < Api::V1::ApplicationController
 
 	  # Only allow a trusted parameter "white list" through.
 	  def gym_params
-	    params.require(:gym).permit(:name, :cnpj)
+	    params.require(:gym).permit(:name, :email, :cnpj)
 	  end
 
 	  def options
-	    @options ||= { include: %i[emails telephones locations users] } 
+	    @options ||= { include: %i[telephones locations users] } 
 	  end
 end

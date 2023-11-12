@@ -2,10 +2,11 @@
   "type": "object",
   "properties": {
     "client": {
-      "required": ["id", "name", "weight", "height", "gym_id"],
+      "required": ["id", "name", "email", "weight", "height", "gym_id"],
       "properties": {
         "id" : {"type": "integer"},
         "name" : {"type": "string"},
+        "email" : {"type": "string"},
         "weight" : {"type": "number"},
         "height" : {"type": "number"},
         "gym_id" : {"type": "integer"}

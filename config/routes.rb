@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount_devise_token_auth_for 'User', at: 'auth'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :gyms, only: [:index, :show, :update, :create, :destroy]
       resources :telephones
-      resources :emails
       resources :states, only: [:index, :show, :update, :create]
       resources :cities, only: [:index, :show, :update, :create]
       resources :locations

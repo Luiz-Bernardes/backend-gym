@@ -9,14 +9,9 @@ title Backend Gym - Diagrama de Classe
 
 class Gym {
   +String name
+  +String email
   +String slug
   -String cnpj
-}
-
-class Email {
-  +String address
-  +Int gym_id
-  +Int user_id
 }
 
 class Telephone {
@@ -46,11 +41,12 @@ class City {
 
 class User {
   +String name
+  +String email
   +String user_type
 }
 
 class Admin extends User {
-   +Boo is_admin
+   -String password
 }
 
 class Client extends User {
@@ -96,12 +92,12 @@ class TrainingExercise {
   +Int exercise_id
 }
 
-Email "many" *-up- "1" Gym: Association
+
+User "many" *-up- "1" Gym: Association
 Telephone "many" *-up- "1" Gym: Association
 Location "many" *-up- "1" Gym: Association
 City "many" *-up- "1" State: Composition
 Location "many" *-up- "1" City: Composition
-Email "many" *-up- "1" User: Association
 Telephone "many" *-up- "1" User: Association
 Location "many" *-up- "1" User: Association
 Client "many" *-up- "1" Plan: Aggregation

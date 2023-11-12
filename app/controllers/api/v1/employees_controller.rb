@@ -51,11 +51,11 @@ class Api::V1::EmployeesController < Api::V1::ApplicationController
     def employee_params
       params.require(:employee).permit(
         :name, 
+        :email,
         :role, 
         :gym_id, 
         :user_type,
         telephones_attributes: [:number],
-        emails_attributes: [:address],
         locations_attributes: [
           :address,
           :number,
@@ -67,6 +67,6 @@ class Api::V1::EmployeesController < Api::V1::ApplicationController
     end
 
     def options
-      @options ||= { include: %i[telephones emails locations] } 
+      @options ||= { include: %i[telephones locations] } 
     end
 end
