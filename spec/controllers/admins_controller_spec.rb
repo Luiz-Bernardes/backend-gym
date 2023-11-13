@@ -7,7 +7,6 @@ RSpec.describe Api::V1::AdminsController, type: :controller do
 
   it "GET /index" do
     get :index
-    response.set_header('Accept', 'application/json')
     expect(response).to have_http_status(200)
   end
 
