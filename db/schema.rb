@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_12_184311) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_13_123310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,6 +122,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_12_184311) do
     t.string "nickname"
     t.string "image"
     t.json "tokens"
+    t.integer "sign_in_count"
+    t.time "current_sign_in_at"
+    t.time "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
