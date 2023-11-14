@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::LocationsController, type: :controller do
   before(:each) do 
+    # ADD HEADER
+    request.headers.merge!({'Accept': 'application/json'})
+    # FACTORIES
     @location = create(:location)
   end
 

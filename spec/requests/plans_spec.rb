@@ -2,19 +2,22 @@ require 'rails_helper'
 
 RSpec.describe "PlansRequest", type: :request do
   before(:each) do 
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
+    # FACTORIES
     @plan = create(:plan)
   end
 
   describe "JSON Schema " do
     it "json is expected to match json schema plan" do
-      get "/api/v1/plans/#{@plan.id}.json"
+      get "/api/v1/plans/#{@plan.id}.json", headers: @headers
       expect(response).to match_json_schema("plan")
     end
   end
 
   describe "GET" do
     it "index is expected response body to include json" do
-      get "/api/v1/plans.json"
+      get "/api/v1/plans.json", headers: @headers
       expect(response.body).to include_json(
         data: [
           {
@@ -30,7 +33,7 @@ RSpec.describe "PlansRequest", type: :request do
     end
 
     it "show is expected response body to include json" do
-      get "/api/v1/plans/#{@plan.id}.json"
+      get "/api/v1/plans/#{@plan.id}.json", headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @plan.id.to_s,
@@ -46,9 +49,8 @@ RSpec.describe "PlansRequest", type: :request do
 
   describe "POST" do
     it "create is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
       plan_params = build(:plan, gym: @plan.gym).attributes
-      post "/api/v1/plans.json", params: { plan: plan_params }, headers: headers
+      post "/api/v1/plans.json", params: { plan: plan_params }, headers: @headers
       plan = Plan.last
       expect(response.body).to include_json(
         data: {
@@ -65,8 +67,7 @@ RSpec.describe "PlansRequest", type: :request do
 
   describe "PATCH" do
     it "update is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
-      patch "/api/v1/plans/#{@plan.id}.json", params: { plan: @plan.attributes }, headers: headers
+      patch "/api/v1/plans/#{@plan.id}.json", params: { plan: @plan.attributes }, headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @plan.id.to_s,

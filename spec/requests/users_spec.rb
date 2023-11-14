@@ -2,19 +2,22 @@ require 'rails_helper'
 
 RSpec.describe "UsersRequest", type: :request do
   before(:each) do 
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
+    # FACTORIES
     @user = create(:user)
   end
 
   describe "JSON Schema " do
     it "json is expected to match json schema user" do
-      get "/api/v1/users/#{@user.id}.json"
+      get "/api/v1/users/#{@user.id}.json", headers: @headers
       expect(response).to match_json_schema("user")
     end
   end
 
   describe "GET" do
     it "index is expected response body to include json" do
-      get "/api/v1/users.json"
+      get "/api/v1/users.json", headers: @headers
       expect(response.body).to include_json(
         data: [
           {
@@ -38,7 +41,7 @@ RSpec.describe "UsersRequest", type: :request do
     end
 
     it "show is expected response body to include json" do
-      get "/api/v1/users/#{@user.id}.json"
+      get "/api/v1/users/#{@user.id}.json", headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @user.id.to_s,
@@ -63,9 +66,8 @@ RSpec.describe "UsersRequest", type: :request do
 
   describe "POST" do
     it "create is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
       user_params = build(:user, gym: @user.gym).attributes
-      post "/api/v1/users.json", params: { user: user_params }, headers: headers
+      post "/api/v1/users.json", params: { user: user_params }, headers: @headers
       user = User.last
       expect(response.body).to include_json(
         data: {
@@ -90,8 +92,7 @@ RSpec.describe "UsersRequest", type: :request do
 
   describe "PATCH" do
     it "update is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
-      patch "/api/v1/users/#{@user.id}.json", params: { user: @user.attributes }, headers: headers
+      patch "/api/v1/users/#{@user.id}.json", params: { user: @user.attributes }, headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @user.id.to_s,

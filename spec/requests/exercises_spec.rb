@@ -2,19 +2,22 @@ require 'rails_helper'
 
 RSpec.describe "ExercisesRequest", type: :request do
   before(:each) do 
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
+    # FACTORIES
     @exercise = create(:exercise)
   end
 
   describe "JSON Schema " do
     it "json is expected to match json schema exercise" do
-      get "/api/v1/exercises/#{@exercise.id}.json"
+      get "/api/v1/exercises/#{@exercise.id}.json", headers: @headers
       expect(response).to match_json_schema("exercise")
     end
   end
 
   describe "GET" do
     it "index is expected response body to include json" do
-      get "/api/v1/exercises.json"
+      get "/api/v1/exercises.json", headers: @headers
       expect(response.body).to include_json(
         data: [
           {
@@ -31,7 +34,7 @@ RSpec.describe "ExercisesRequest", type: :request do
     end
 
     it "show is expected response body to include json" do
-      get "/api/v1/exercises/#{@exercise.id}.json"
+      get "/api/v1/exercises/#{@exercise.id}.json", headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @exercise.id.to_s,
@@ -48,9 +51,8 @@ RSpec.describe "ExercisesRequest", type: :request do
 
   describe "POST" do
     it "create is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
       exercise_params = build(:exercise, gym: @exercise.gym).attributes
-      post "/api/v1/exercises.json", params: { exercise: exercise_params }, headers: headers
+      post "/api/v1/exercises.json", params: { exercise: exercise_params }, headers: @headers
       exercise = Exercise.last
       expect(response.body).to include_json(
         data: {
@@ -68,9 +70,8 @@ RSpec.describe "ExercisesRequest", type: :request do
 
   describe "PATCH" do
     it "update is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
       @exercise.name = "Nome alterado"
-      patch "/api/v1/exercises/#{@exercise.id}.json" , params: { exercise: @exercise.attributes }, headers: headers
+      patch "/api/v1/exercises/#{@exercise.id}.json" , params: { exercise: @exercise.attributes }, headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @exercise.id.to_s,

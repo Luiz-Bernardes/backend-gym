@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "TelephonesRequest", type: :request do
   before(:each) do 
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
+    # FACTORIES
     @gym = create(:gym)
     @user = create(:user)
     @telephone = create(:telephone, gym: @gym, user: @user)
@@ -9,14 +12,14 @@ RSpec.describe "TelephonesRequest", type: :request do
 
   describe "JSON Schema " do
     it "json is expected to match json schema telephone" do
-      get "/api/v1/telephones/#{@telephone.id}.json"
+      get "/api/v1/telephones/#{@telephone.id}.json", headers: @headers
       expect(response).to match_json_schema("telephone")
     end
   end
 
   describe "GET" do
     it "index is expected response body to include json" do
-      get "/api/v1/telephones.json"
+      get "/api/v1/telephones.json", headers: @headers
       expect(response.body).to include_json(
         data: [
           {
@@ -41,7 +44,7 @@ RSpec.describe "TelephonesRequest", type: :request do
     end
 
     it "show is expected response body to include json" do
-      get "/api/v1/telephones/#{@telephone.id}.json"
+      get "/api/v1/telephones/#{@telephone.id}.json", headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @telephone.id.to_s,
@@ -66,9 +69,8 @@ RSpec.describe "TelephonesRequest", type: :request do
 
   describe "POST" do
     it "create is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
       telephone_params = build(:telephone, gym: @gym, user: @user).attributes
-      post "/api/v1/telephones.json", params: { telephone: telephone_params }, headers: headers
+      post "/api/v1/telephones.json", params: { telephone: telephone_params }, headers: @headers
       telephone = Telephone.last
       expect(response.body).to include_json(
         data: {
@@ -94,8 +96,7 @@ RSpec.describe "TelephonesRequest", type: :request do
 
   describe "PATCH" do
     it "update is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
-      patch "/api/v1/telephones/#{@telephone.id}.json" , params: { telephone: @telephone.attributes }, headers: headers
+      patch "/api/v1/telephones/#{@telephone.id}.json" , params: { telephone: @telephone.attributes }, headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @telephone.id.to_s,

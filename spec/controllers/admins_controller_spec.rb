@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::AdminsController, type: :controller do
   before(:each) do 
+    # ADD HEADER
+    request.headers.merge!({'Accept': 'application/json'})
+    # FACTORIES
     @admin = create(:admin)
   end
 

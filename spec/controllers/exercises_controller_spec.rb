@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ExercisesController, type: :controller do
   before(:each) do 
+    # ADD HEADER
+    request.headers.merge!({'Accept': 'application/json'})
+    # FACTORIES
     @exercise = create(:exercise)
   end
 

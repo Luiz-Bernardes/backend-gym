@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::TelephonesController, type: :controller do
   before(:each) do 
+    # ADD HEADER
+    request.headers.merge!({'Accept': 'application/json'})
+    # FACTORIES
     @telephone = create(:telephone)
   end
 

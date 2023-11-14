@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "LocationsRequest", type: :request do
   before(:each) do 
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
+    # FACTORIES
     @gym = create(:gym)
     @user = create(:user)
     @city = create(:city)
@@ -10,14 +13,14 @@ RSpec.describe "LocationsRequest", type: :request do
 
   describe "JSON Schema " do
     it "json is expected to match json schema location" do
-      get "/api/v1/locations/#{@location.id}.json"
+      get "/api/v1/locations/#{@location.id}.json", headers: @headers
       expect(response).to match_json_schema("location")
     end
   end
 
   describe "GET" do
     it "index is expected response body to include json" do
-      get "/api/v1/locations.json"
+      get "/api/v1/locations.json", headers: @headers
       expect(response.body).to include_json(
         data: [
           {
@@ -49,7 +52,7 @@ RSpec.describe "LocationsRequest", type: :request do
     end
 
     it "show is expected response body to include json" do
-      get "/api/v1/locations/#{@location.id}.json"
+      get "/api/v1/locations/#{@location.id}.json", headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @location.id.to_s,
@@ -81,9 +84,8 @@ RSpec.describe "LocationsRequest", type: :request do
 
   describe "POST" do
     it "create is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
       location_params = build(:location, gym: @gym, user: @user, city: @city).attributes
-      post "/api/v1/locations.json", params: { location: location_params }, headers: headers
+      post "/api/v1/locations.json", params: { location: location_params }, headers: @headers
       location = Location.last
       expect(response.body).to include_json(
         data: {
@@ -116,8 +118,7 @@ RSpec.describe "LocationsRequest", type: :request do
 
   describe "PATCH" do
     it "update is expected response body to include json" do
-      headers = { "ACCEPT" => "application/json" }
-      patch "/api/v1/locations/#{@location.id}.json" , params: { location: @location.attributes }, headers: headers
+      patch "/api/v1/locations/#{@location.id}.json" , params: { location: @location.attributes }, headers: @headers
       expect(response.body).to include_json(
         data: {
           id: @location.id.to_s,

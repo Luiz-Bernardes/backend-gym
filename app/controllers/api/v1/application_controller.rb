@@ -5,10 +5,7 @@ class Api::V1::ApplicationController < ActionController::API
 
 	private
 	def validate_json_request
-		request_json = request.headers["Accept"] =~ /json/
-		controller_test_host = request.host == "test.host"
-		request_test_host = request.host == "www.example.com"
-		return if request_json || controller_test_host || request_test_host
+		return if request.headers["Accept"] =~ /json/
 		render nothing: true, status: 406
 	end
 
