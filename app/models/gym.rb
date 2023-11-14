@@ -17,4 +17,16 @@ class Gym < ApplicationRecord
 		owner = GymService.find_owner(self)
 		{ id: owner.id , name: owner.name } unless owner.nil?
 	end
+
+	def count_clients
+		GymService.count_users(self, CLIENT)
+	end
+
+	def count_employees
+		GymService.count_users(self, EMPLOYEE)
+	end
+
+	def count_admins
+		GymService.count_users(self, ADMIN)
+	end
 end

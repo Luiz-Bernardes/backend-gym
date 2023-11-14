@@ -39,11 +39,25 @@ RSpec.describe Gym, type: :model do
       it '#find_owner' do
         expect(GymService.find_owner(@gym).name).to eq(@admin.name)
       end
+      it '#find_users' do
+        expect(GymService.find_users(@gym, CLIENT).count).to eq(GymService.count_users(@gym, CLIENT))
+        expect(GymService.find_users(@gym, EMPLOYEE).count).to eq(GymService.count_users(@gym, EMPLOYEE))
+        expect(GymService.find_users(@gym, ADMIN).count).to eq(GymService.count_users(@gym, ADMIN))
+      end
     end
 
     context 'Model methods' do
       it '#owner' do
         expect(@gym.owner[:name]).to eq(@admin.name)
+      end
+      it '#count_clients' do
+        expect(@gym.count_clients).to eq(GymService.count_users(@gym, CLIENT))
+      end
+      it '#count_employees' do
+        expect(@gym.count_employees).to eq(GymService.count_users(@gym, EMPLOYEE))
+      end
+      it '#count_admins' do
+        expect(@gym.count_admins).to eq(GymService.count_users(@gym, ADMIN))
       end
     end
   end

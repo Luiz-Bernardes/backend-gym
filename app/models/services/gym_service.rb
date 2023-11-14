@@ -9,4 +9,12 @@ class GymService
 	def self.find_owner(gym)
 		gym.users.find_by(user_type: ADMIN)
 	end
+
+	def self.find_users(gym, type)
+		gym.users.where(user_type: type)
+	end
+
+	def self.count_users(gym, type)
+		self.find_users(gym, type).count
+	end
 end
