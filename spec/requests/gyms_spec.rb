@@ -49,7 +49,7 @@ RSpec.describe "GymsRequest", type: :request do
 
   describe "POST" do
     it "create is expected response body to include json" do
-      gym_params = attributes_for(:gym)
+      gym_params = build(:gym, gym_type: @gym.gym_type).attributes
       post "/api/v1/gyms.json", params: { gym: gym_params }, headers: @headers
       gym = Gym.last
       expect(response.body).to include_json(

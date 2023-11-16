@@ -8,6 +8,7 @@ class Gym < ApplicationRecord
 	has_many :users
 	has_many :plans
 	has_many :exercises
+	belongs_to :gym_type
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :telephones, :locations, :users, :exercises

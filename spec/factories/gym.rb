@@ -6,5 +6,6 @@ FactoryBot.define do
 		email { Faker::Internet.email }
 		cnpj { "88.671.658/0001-76" }
 		slug { "academia" }
+		gym_type
 	end
 end

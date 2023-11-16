@@ -19,7 +19,7 @@ RSpec.describe Api::V1::GymsController, type: :controller do
   end
 
   it "POST /create" do
-    gym_params = attributes_for(:gym)
+    gym_params = attributes_for(:gym).merge({ gym_type_id: @gym.gym_type.id})
     expect(response).to have_http_status(200)
     expect {
       post :create, 

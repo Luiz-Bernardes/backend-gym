@@ -16,6 +16,10 @@ RSpec.describe Gym, type: :model do
     it { should validate_presence_of(:name) }
   end
 
+  context 'Association validations' do
+    it { should belong_to(:gym_type) }
+  end
+
   context 'Class type validations' do
     it 'is expected to validate that :name class eq String' do 
       expect(@gym.name.class).to eq(String)
@@ -25,6 +29,9 @@ RSpec.describe Gym, type: :model do
     end
     it 'is expected to validate that :slug class eq String' do 
       expect(@gym.slug.class).to eq(String)
+    end
+    it 'is expected to validate that :gym_type class eq GymType' do 
+      expect(@gym.gym_type.class).to eq(GymType)
     end
   end
 

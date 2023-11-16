@@ -9,7 +9,10 @@
 #   end
 
 
-gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", email: "academia@hfstudio.com", cnpj: "72.178.624/0001-04", slug: 'hfstudio')
+gym_type_a = GymType.find_or_create_by!(name: "Musculação", slug: "bodybuilding")
+gym_type_b = GymType.find_or_create_by!(name: "Natação", slug: "swimming")
+
+gym_hfstudio = Gym.find_or_create_by!(name: "HFSTUDIO", email: "academia@hfstudio.com", cnpj: "72.178.624/0001-04", slug: "hfstudio", gym_type_id: gym_type_a.id)
 
 user_adm = User.find_or_create_by!(name: "Hugo Freitas", email: "hugo@hfstudio.com", user_type: ADMIN, gym_id: gym_hfstudio.id)
 
