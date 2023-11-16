@@ -1,0 +1,76 @@
+class Api::V1::ClientsController < Api::V1::ApplicationController
+  before_action :authenticate_api_v1_user! # @current_api_v1_user
+  before_action :set_client, only: [:show, :update, :destroy]
+
+  # GET /api/v1/clients
+  def index
+    @clients = ClientService.all_from(@current_api_v1_user)
+    render json: serialize_client(@clients, options)
+  end
+
+  # GET /api/v1/clients/1
+  def show
+    render json: serialize_client(@client, options)
+  end
+
+  # POST /api/v1/clients
+  def create
+    @client = ClientService.save_for(client_params, @current_api_v1_user)
+    if @client.valid?
+      render json: serialize_client(@client, options), status: :created
+    else
+      render json: @client.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /api/v1/clients/1
+  def update
+    if @client.update(client_params)
+      render json: serialize_client(@client, options)
+    else
+      render json: @client.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /api/v1/clients/1
+  def destroy
+    @client.destroy
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_client
+      @client = Client.find(params[:id])
+    end
+
+    def serialize_client query, options
+      ClientSerializer.new(query, options).serializable_hash.to_json
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def client_params
+      params.require(:client).permit(
+        :name, 
+        :email,
+        :weight, 
+        :height, 
+        :birthdate, 
+        :begindate, 
+        :plan_id, 
+        :gym_id, 
+        :user_type,
+        telephones_attributes: [:number],
+        locations_attributes: [
+          :address,
+          :number,
+          :neighborhood,
+          :complement,
+          :city_id
+        ]
+      )
+    end
+
+    def options
+      @options ||= { include: %i[telephones locations records] } 
+    end
+end
