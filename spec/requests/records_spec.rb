@@ -27,16 +27,7 @@ RSpec.describe "RecordsRequest", type: :request do
               begin_date: @record.begin_date,
               end_date: @record.end_date,
               goal: @record.goal,
-              interval: @record.interval,
-              client: {
-                id: @record.client.id,
-                name: @record.client.name,
-                weight: @record.client.weight.to_s,
-                height: @record.client.height.to_s,
-                birthdate: @record.client.birthdate,
-                begindate: @record.client.begindate,
-                user_type: @record.client.user_type
-              }
+              interval: @record.interval
             }
           }
         ]
@@ -53,16 +44,7 @@ RSpec.describe "RecordsRequest", type: :request do
             begin_date: @record.begin_date,
             end_date: @record.end_date,
             goal: @record.goal,
-            interval: @record.interval,
-            client: {
-              id: @record.client.id,
-              name: @record.client.name,
-              weight: @record.client.weight.to_s,
-              height: @record.client.height.to_s,
-              birthdate: @record.client.birthdate,
-              begindate: @record.client.begindate,
-              user_type: @record.client.user_type
-            }
+            interval: @record.interval
           }
         }
       )
@@ -82,16 +64,7 @@ RSpec.describe "RecordsRequest", type: :request do
             begin_date: record.begin_date,
             end_date: record.end_date,
             goal: record.goal,
-            interval: record.interval,
-            client: {
-              id: record.client.id,
-              name: record.client.name,
-              weight: record.client.weight.to_s,
-              height: record.client.height.to_s,
-              birthdate: record.client.birthdate,
-              begindate: record.client.begindate,
-              user_type: record.client.user_type
-            }
+            interval: record.interval
           }
         }
       )
@@ -109,16 +82,7 @@ RSpec.describe "RecordsRequest", type: :request do
             begin_date: @record.begin_date,
             end_date: @record.end_date,
             goal: @record.goal,
-            interval: @record.interval,
-            client: {
-              id: @record.client.id,
-              name: @record.client.name,
-              weight: @record.client.weight.to_s,
-              height: @record.client.height.to_s,
-              birthdate: @record.client.birthdate,
-              begindate: @record.client.begindate,
-              user_type: @record.client.user_type
-            }
+            interval: @record.interval
           }
         }
       )

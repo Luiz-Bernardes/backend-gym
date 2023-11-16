@@ -1,6 +1,7 @@
 class TrainingSerializer
   include JSONAPI::Serializer
-  attributes :name, :record
+  attributes :name
 
   has_many :exercises, serializer: ExerciseSerializer
+  belongs_to :record, serializer: RecordSerializer
 end

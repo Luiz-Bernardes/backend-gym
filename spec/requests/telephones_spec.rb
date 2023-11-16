@@ -26,17 +26,7 @@ RSpec.describe "TelephonesRequest", type: :request do
             id: @telephone.id.to_s,
             type: "telephone",
             attributes: {
-              number: @telephone.number,
-              gym: {
-                id: @telephone.gym.id,
-                name: @telephone.gym.name,
-                cnpj: @telephone.gym.cnpj,
-                slug: @telephone.gym.slug
-              },
-              user: {
-                id: @telephone.user.id,
-                name: @telephone.user.name
-              }
+              number: @telephone.number
             }
           }
         ]
@@ -50,17 +40,7 @@ RSpec.describe "TelephonesRequest", type: :request do
           id: @telephone.id.to_s,
           type: "telephone",
           attributes: {
-            number: @telephone.number,
-            gym: {
-              id: @telephone.gym.id,
-              name: @telephone.gym.name,
-              cnpj: @telephone.gym.cnpj,
-              slug: @telephone.gym.slug
-            },
-            user: {
-              id: @telephone.user.id,
-              name: @telephone.user.name
-            }
+            number: @telephone.number
           }
         }
       )
@@ -77,17 +57,7 @@ RSpec.describe "TelephonesRequest", type: :request do
           id: telephone.id.to_s,
           type: "telephone",
           attributes: {
-            number: telephone.number,
-            gym: {
-              id: telephone.gym.id,
-              name: telephone.gym.name,
-              cnpj: telephone.gym.cnpj,
-              slug: telephone.gym.slug
-            },
-            user: {
-              id: telephone.user.id,
-              name: telephone.user.name
-            }
+            number: telephone.number
           }
         }
       )
@@ -102,17 +72,7 @@ RSpec.describe "TelephonesRequest", type: :request do
           id: @telephone.id.to_s,
           type: "telephone",
           attributes: {
-            number: @telephone.number,
-            gym: {
-              id: @telephone.gym.id,
-              name: @telephone.gym.name,
-              cnpj: @telephone.gym.cnpj,
-              slug: @telephone.gym.slug
-            },
-            user: {
-              id: @telephone.user.id,
-              name: @telephone.user.name
-            }
+            number: @telephone.number
           }
         }
       )

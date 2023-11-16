@@ -1,4 +1,6 @@
 class CitySerializer
   include JSONAPI::Serializer
-  attributes :name, :state
+  attributes :name
+
+  belongs_to :state, serializer: StateSerializer
 end

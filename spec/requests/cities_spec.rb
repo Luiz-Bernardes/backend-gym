@@ -24,12 +24,7 @@ RSpec.describe "CitiesRequest", type: :request do
             id: @city.id.to_s,
             type: "city",
             attributes: {
-              name: @city.name,
-              state: {
-                id: @city.state.id,
-                name: @city.state.name,
-                uf: @city.state.uf
-              }
+              name: @city.name
             }
           }
         ]
@@ -43,12 +38,7 @@ RSpec.describe "CitiesRequest", type: :request do
           id: @city.id.to_s,
           type: "city",
           attributes: {
-            name: @city.name,
-            state: {
-              id: @city.state.id,
-              name: @city.state.name,
-              uf: @city.state.uf
-            }
+            name: @city.name
           }
         }
       )
@@ -65,12 +55,7 @@ RSpec.describe "CitiesRequest", type: :request do
           id: city.id.to_s,
           type: "city",
           attributes: {
-            name: city.name,
-            state: {
-              id: city.state.id,
-              name: city.state.name,
-              uf: city.state.uf
-            }
+            name: city.name
           }
         }
       )
@@ -85,12 +70,7 @@ RSpec.describe "CitiesRequest", type: :request do
           id: @city.id.to_s,
           type: "city",
           attributes: {
-            name: @city.name,
-            state: {
-              id: @city.state.id,
-              name: @city.state.name,
-              uf: @city.state.uf
-            }
+            name: @city.name
           }
         }
       )

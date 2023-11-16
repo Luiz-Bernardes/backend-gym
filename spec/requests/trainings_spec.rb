@@ -24,14 +24,7 @@ RSpec.describe "TrainingsRequest", type: :request do
             id: @training.id.to_s,
             type: "training",
             attributes: {
-              name: @training.name,
-              record: {
-                id: @training.record.id,
-                begin_date: @training.record.begin_date,
-                end_date: @training.record.end_date,
-                interval: @training.record.interval,
-                goal: @training.record.goal
-              }
+              name: @training.name
             }
           }
         ]
@@ -45,14 +38,7 @@ RSpec.describe "TrainingsRequest", type: :request do
           id: @training.id.to_s,
           type: "training",
           attributes: {
-            name: @training.name,
-            record: {
-              id: @training.record.id,
-              begin_date: @training.record.begin_date,
-              end_date: @training.record.end_date,
-              interval: @training.record.interval,
-              goal: @training.record.goal
-            }
+            name: @training.name
           }
         }
       )
@@ -69,14 +55,7 @@ RSpec.describe "TrainingsRequest", type: :request do
           id: training.id.to_s,
           type: "training",
           attributes: {
-            name: training.name,
-            record: {
-              id: training.record.id,
-              begin_date: training.record.begin_date,
-              end_date: training.record.end_date,
-              interval: training.record.interval,
-              goal: training.record.goal
-            }
+            name: training.name
           }
         }
       )
@@ -91,14 +70,7 @@ RSpec.describe "TrainingsRequest", type: :request do
           id: @training.id.to_s,
           type: "training",
           attributes: {
-            name: @training.name,
-            record: {
-              id: @training.record.id,
-              begin_date: @training.record.begin_date,
-              end_date: @training.record.end_date,
-              interval: @training.record.interval,
-              goal: @training.record.goal
-            }
+            name: @training.name
           }
         }
       )

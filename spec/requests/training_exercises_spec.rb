@@ -23,18 +23,7 @@ RSpec.describe "TrainingExercisesRequest", type: :request do
           {
             id: @training_exercise.id.to_s,
             type: "training_exercise",
-            attributes: {
-              training: {
-                name: @training_exercise.training.name,
-                record_id: @training_exercise.training.record_id,
-              },
-              exercise: {
-                name: @training_exercise.exercise.name,
-                qnt_series: @training_exercise.exercise.qnt_series,
-                qnt_repetitions: @training_exercise.exercise.qnt_repetitions,
-                gym_id: @training_exercise.exercise.gym_id
-              },
-            }
+            attributes: {}
           }
         ]
       )
@@ -46,18 +35,7 @@ RSpec.describe "TrainingExercisesRequest", type: :request do
         data: {
           id: @training_exercise.id.to_s,
           type: "training_exercise",
-          attributes: {
-            training: {
-              name: @training_exercise.training.name,
-              record_id: @training_exercise.training.record_id,
-            },
-            exercise: {
-              name: @training_exercise.exercise.name,
-              qnt_series: @training_exercise.exercise.qnt_series,
-              qnt_repetitions: @training_exercise.exercise.qnt_repetitions,
-              gym_id: @training_exercise.exercise.gym_id
-            },
-          }
+          attributes: {}
         }
       )
     end 
@@ -72,18 +50,7 @@ RSpec.describe "TrainingExercisesRequest", type: :request do
         data: {
           id: training_exercise.id.to_s,
           type: "training_exercise",
-          attributes: {
-            training: {
-              name: training_exercise.training.name,
-              record_id: training_exercise.training.record_id,
-            },
-            exercise: {
-              name: training_exercise.exercise.name,
-              qnt_series: training_exercise.exercise.qnt_series,
-              qnt_repetitions: training_exercise.exercise.qnt_repetitions,
-              gym_id: training_exercise.exercise.gym_id
-            },
-          }
+          attributes: {}
         }
       )
     end
@@ -96,18 +63,7 @@ RSpec.describe "TrainingExercisesRequest", type: :request do
         data: {
           id: @training_exercise.id.to_s,
           type: "training_exercise",
-          attributes: {
-            training: {
-              name: @training_exercise.training.name,
-              record_id: @training_exercise.training.record_id,
-            },
-            exercise: {
-              name: @training_exercise.exercise.name,
-              qnt_series: @training_exercise.exercise.qnt_series,
-              qnt_repetitions: @training_exercise.exercise.qnt_repetitions,
-              gym_id: @training_exercise.exercise.gym_id
-            },
-          }
+          attributes: {}
         }
       )
     end
