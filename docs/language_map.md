@@ -33,3 +33,12 @@ trainings
 
 # Usuários
 users
+
+# Alunos
+clients
+
+# Administradores
+admins
+
+# Funcionários
+employess

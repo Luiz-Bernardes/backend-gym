@@ -11,7 +11,13 @@ class Gym {
   +String name
   +String email
   +String slug
+  +Int gym_type_id
   -String cnpj
+}
+
+class GymType {
+  +String name
+  +String slug
 }
 
 class Telephone {
@@ -21,6 +27,7 @@ class Telephone {
 }
 
 class Location {
+  +String name
   +String address
   +String number
   +String neighborhood
@@ -54,6 +61,9 @@ class Client extends User {
   +Float height
   +String birthdate
   +String begindate
+  +String fathers_name
+  +String mothers_name
+  +String occupation
   +Int plan_id
 }
 
@@ -65,6 +75,12 @@ class Plan {
   +String name
   +Float price
   +Int gym_id
+}
+
+class Payment {
+  +Float value
+  +Date payment_date
+  +Date due_date
 }
 
 class Record {
@@ -94,6 +110,7 @@ class TrainingExercise {
 
 
 User "many" *-up- "1" Gym: Association
+Gym "one" *-up- "1" GymType: Association
 Telephone "many" *-up- "1" Gym: Association
 Location "many" *-up- "1" Gym: Association
 City "many" *-up- "1" State: Composition
@@ -101,6 +118,7 @@ Location "many" *-up- "1" City: Composition
 Telephone "many" *-up- "1" User: Association
 Location "many" *-up- "1" User: Association
 Client "many" *-up- "1" Plan: Aggregation
+Payment "many" *-up- "1" Client: Association
 Record "many" *-up- "1" Client: Association
 Record "many" *-up- "1" Employee: Association
 Training "many" *-up- "1" Record: Composition
