@@ -73,14 +73,22 @@ class Employee extends User {
 
 class Plan {
   +String name
-  +Float price
+  +Decimal price
   +Int gym_id
 }
 
 class Payment {
-  +Float value
+  +Decimal value
+  +Decimal amount_paid
   +Date payment_date
   +Date due_date
+  +Int payment_method_id
+  +Int client_id
+}
+
+class PaymentMethod {
+  +String name
+  +String slug
 }
 
 class Record {
@@ -120,6 +128,7 @@ Location "many" *-up- "1" User: Association
 Client "many" *-up- "1" Plan: Aggregation
 Payment "many" *-up- "1" Client: Association
 Record "many" *-up- "1" Client: Association
+Payment "many" *-up- "1" PaymentMethod: Association
 Record "many" *-up- "1" Employee: Association
 Training "many" *-up- "1" Record: Composition
 Exercise "many" *-up- "many" Training: Association

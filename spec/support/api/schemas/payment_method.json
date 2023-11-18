@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "payment_method": {
+      "required": ["id", "name", "slug"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "name" : {"type": "string"},
+        "slug" : {"type": "string"}
+      }
+    }
+  }
+}

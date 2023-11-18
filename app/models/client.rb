@@ -7,6 +7,7 @@ class Client < User
 
 	# ASSOCIATIONS
 	has_many :records
+	has_many :payments
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :records

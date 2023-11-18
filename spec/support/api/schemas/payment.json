@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "payment": {
+      "required": ["id", "value", "due_date", "client_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "value" : {"type": "number"},
+        "amount_paid" : {"type": "number"},
+        "payment_date" : {"type": "string"},
+        "due_date" : {"type": "string"},
+        "client_id" : {"type": "integer"},
+        "payment_method_id" : {"type": "integer"}
+      }
+    }
+  }
+}

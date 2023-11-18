@@ -37,6 +37,9 @@ RSpec.describe "ClientsRequest", type: :request do
               },
               locations: {
                 data: []
+              },
+              payments: {
+                data: []
               }
             }
           }
@@ -63,6 +66,9 @@ RSpec.describe "ClientsRequest", type: :request do
               data: []
             },
             locations: {
+              data: []
+            },
+            payments: {
               data: []
             }
           }
@@ -95,6 +101,9 @@ RSpec.describe "ClientsRequest", type: :request do
             },
             locations: {
               data: []
+            },
+            payments: {
+              data: []
             }
           }
         }
@@ -122,6 +131,9 @@ RSpec.describe "ClientsRequest", type: :request do
               data: []
             },
             locations: {
+              data: []
+            },
+            payments: {
               data: []
             }
           }

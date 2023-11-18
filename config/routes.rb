@@ -17,7 +17,10 @@ Rails.application.routes.draw do
       resources :locations
       resources :plans
       resources :users, only: [:index, :show, :update, :create]
-      resources :clients, only: [:index, :show, :update, :create]
+      resources :payment_methods, only: [:index]
+      resources :clients, only: [:index, :show, :update, :create] do 
+        resources :payments
+      end
       resources :admins, only: [:index, :show, :update, :create]
       resources :employees, only: [:index, :show, :update, :create]
       resources :exercises
@@ -27,5 +30,4 @@ Rails.application.routes.draw do
       resources :training_exercises
     end
   end
-
 end

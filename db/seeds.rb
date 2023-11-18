@@ -9,6 +9,11 @@
 #   end
 
 
+payment_method_pix = PaymentMethod.find_or_create_by!(name: "Pix", slug: "pix")
+payment_method_dinheiro = PaymentMethod.find_or_create_by!(name: "Dinheiro", slug: "dinheiro")
+payment_method_cartaoc = PaymentMethod.find_or_create_by!(name: "Cartão de crédito", slug: "cartao-de-credito")
+payment_method_cartaod = PaymentMethod.find_or_create_by!(name: "Cartão de débito", slug: "cartao-de-debito")
+
 gym_type_a = GymType.find_or_create_by!(name: "Musculação", slug: "bodybuilding")
 gym_type_b = GymType.find_or_create_by!(name: "Natação", slug: "swimming")
 
@@ -35,6 +40,9 @@ Location.find_or_create_by!(
 plan_a = Plan.find_or_create_by!(name: "Plano A", price: 100.0)
 
 client_rafael = Client.find_or_create_by!(name: "Rafael", email: "rafael@hfstudio.com", weight: 0.0, height: 0.0, plan_id: plan_a.id, gym_id: gym_hfstudio.id, user_type: CLIENT)
+
+payment_1108 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,11,08), due_date: Date.new(2023,11,20), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
+
 
 employee_joao = Employee.find_or_create_by!(name: "João", email: "joao@hfstudio.com", weight: 0.0, height: 0.0, gym_id: gym_hfstudio.id, user_type: EMPLOYEE)
 
