@@ -1,13 +1,6 @@
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 
 payment_method_pix = PaymentMethod.find_or_create_by!(name: "Pix", slug: "pix")
 payment_method_dinheiro = PaymentMethod.find_or_create_by!(name: "Dinheiro", slug: "dinheiro")
@@ -41,8 +34,11 @@ plan_a = Plan.find_or_create_by!(name: "Plano A", price: 100.0)
 
 client_rafael = Client.find_or_create_by!(name: "Rafael", email: "rafael@hfstudio.com", weight: 0.0, height: 0.0, plan_id: plan_a.id, gym_id: gym_hfstudio.id, user_type: CLIENT)
 
-payment_1108 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,11,08), due_date: Date.new(2023,11,20), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
-
+payment_2008 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,8,20), due_date: Date.new(2023,8,25), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
+payment_2009 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,9,20), due_date: Date.new(2023,9,25), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
+payment_2010 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,10,20), due_date: Date.new(2023,10,25), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
+payment_2011 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,11,20), due_date: Date.new(2023,11,25), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
+payment_2012 = Payment.find_or_create_by!(value: 80.0, amount_paid: 80.0, payment_date: Date.new(2023,12,20), due_date: Date.new(2023,12,25), payment_method_id: payment_method_pix.id, client_id: client_rafael.id)
 
 employee_joao = Employee.find_or_create_by!(name: "João", email: "joao@hfstudio.com", weight: 0.0, height: 0.0, gym_id: gym_hfstudio.id, user_type: EMPLOYEE)
 
