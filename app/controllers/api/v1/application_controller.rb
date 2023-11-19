@@ -33,7 +33,7 @@ class Api::V1::ApplicationController < ActionController::API
 		text_content << "{ controller: " + controller_name + " } ~ "
 		text_content << "{ action: " + action_name + " } ~ "
 		text_content << "{ date_time: " + DateTime.now.strftime("%d/%m/%Y %H:%M") + " } ~ "
-		text_content << "{ browser: " + request.env['HTTP_USER_AGENT'] + " } ~ "
+		text_content << "{ browser: " + request.env['HTTP_USER_AGENT'] + " } ~ " unless request.env['HTTP_USER_AGENT'].nil?
 		text_content << "{ ip_address: " + request.env['REMOTE_ADDR'] + " } \n"
 		text_content
 	end
