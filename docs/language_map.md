@@ -42,3 +42,9 @@ admins
 
 # Funcionários
 employess
+
+# Pagamentos
+payments
+
+# Métodos de pagamento
+payment_methods

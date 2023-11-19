@@ -13,6 +13,8 @@ gem "puma", ">= 5.0"
 
 # Jsonapi
 gem 'jsonapi-serializer'
+# Observer
+gem 'rails-observers'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"

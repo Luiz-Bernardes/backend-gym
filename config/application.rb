@@ -13,6 +13,9 @@ module BackendGym
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W[#{config.root}/app/models/services]
+    config.autoload_paths += %W[#{config.root}/app/models/observers]
+
+    # config.active_record.observers = %i[logs_observer]
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
