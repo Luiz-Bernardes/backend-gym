@@ -29,7 +29,13 @@ RSpec.describe "ClientsRequest", type: :request do
               weight: @client.weight.to_s,
               height: @client.height.to_s,
               birthdate: @client.birthdate,
-              begindate: @client.begindate
+              begindate: @client.begindate,
+              medical_name: @client.medical_name,
+              medical_address: @client.medical_address,
+              medical_email: @client.medical_email,
+              medical_telephone: @client.medical_telephone,
+              medical_type: @client.medical_type,
+              gender: @client.gender
             },
             relationships: {
               telephones: {
@@ -59,7 +65,13 @@ RSpec.describe "ClientsRequest", type: :request do
             weight: @client.weight.to_s,
             height: @client.height.to_s,
             birthdate: @client.birthdate,
-            begindate: @client.begindate
+            begindate: @client.begindate,
+            medical_name: @client.medical_name,
+            medical_address: @client.medical_address,
+            medical_email: @client.medical_email,
+            medical_telephone: @client.medical_telephone,
+            medical_type: @client.medical_type,
+            gender: @client.gender
           },
           relationships: {
             telephones: {
@@ -93,7 +105,13 @@ RSpec.describe "ClientsRequest", type: :request do
             weight: client.weight.to_s,
             height: client.height.to_s,
             birthdate: client.birthdate,
-            begindate: client.begindate
+            begindate: client.begindate,
+            medical_name: client.medical_name,
+            medical_address: client.medical_address,
+            medical_email: client.medical_email,
+            medical_telephone: client.medical_telephone,
+            medical_type: client.medical_type,
+            gender: client.gender
           },
           relationships: {
             telephones: {
@@ -124,7 +142,13 @@ RSpec.describe "ClientsRequest", type: :request do
             weight: @client.weight.to_s,
             height: @client.height.to_s,
             birthdate: @client.birthdate,
-            begindate: @client.begindate
+            begindate: @client.begindate,
+            medical_name: @client.medical_name,
+            medical_address: @client.medical_address,
+            medical_email: @client.medical_email,
+            medical_telephone: @client.medical_telephone,
+            medical_type: @client.medical_type,
+            gender: @client.gender
           },
           relationships: {
             telephones: {

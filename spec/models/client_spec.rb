@@ -44,6 +44,24 @@ RSpec.describe Client, type: :model do
     it 'is expected to validate that :user_type class eq String' do 
       expect(@client.user_type.class).to eq(String)
     end
+    it 'is expected to validate that :medical_name class eq String' do 
+      expect(@client.medical_name.class).to eq(String)
+    end
+    it 'is expected to validate that :medical_address class eq String' do 
+      expect(@client.medical_address.class).to eq(String)
+    end
+    it 'is expected to validate that :medical_email class eq String' do 
+      expect(@client.medical_email.class).to eq(String)
+    end
+    it 'is expected to validate that :medical_telephone class eq String' do 
+      expect(@client.medical_telephone.class).to eq(String)
+    end
+    it 'is expected to validate that :medical_type class eq String' do 
+      expect(@client.medical_type.class).to eq(String)
+    end
+    it 'is expected to validate that :gender class eq String' do 
+      expect(@client.gender.class).to eq(String)
+    end
     it 'is expected to validate that :gym class eq Gym' do 
       expect(@client.gym.class).to eq(Gym)
     end

@@ -9,6 +9,12 @@ FactoryBot.define do
 		birthdate { Faker::Date.birthday(min_age: 18, max_age: 65).to_s }
 		begindate { Faker::Date.backward(days: 30).to_s }
 		user_type { CLIENT }
+		medical_name { Faker::Name.name }
+		medical_address { Faker::Address.street_name }
+		medical_email { Faker::Internet.email }
+		medical_telephone { Faker::PhoneNumber.cell_phone }
+		medical_type { 'general' }
+		gender { 'masculine' }
 		gym
 	end
 end

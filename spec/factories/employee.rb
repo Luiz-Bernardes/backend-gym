@@ -6,6 +6,7 @@ FactoryBot.define do
 		email { Faker::Internet.email }
 		role { Faker::Construction.role }
 		user_type { EMPLOYEE }
+		gender { 'feminine' }
 		gym
 	end
 end

@@ -9,6 +9,12 @@
         "email" : {"type": "string"},
         "weight" : {"type": "number"},
         "height" : {"type": "number"},
+        "medical_name" : {"type": "string"},
+        "medical_address" : {"type": "string"},
+        "medical_email" : {"type": "string"},
+        "medical_telephone" : {"type": "string"},
+        "medical_type" : {"type": "string"},
+        "gender" : {"type": "string"},
         "gym_id" : {"type": "integer"}
       }
     }

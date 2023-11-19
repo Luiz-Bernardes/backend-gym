@@ -25,7 +25,8 @@ RSpec.describe "AdminsRequest", type: :request do
             type: "admin",
             attributes: {
               name: @admin.name,
-              email: @admin.email
+              email: @admin.email,
+              gender: @admin.gender
             },
             relationships: {
               telephones: {
@@ -48,7 +49,8 @@ RSpec.describe "AdminsRequest", type: :request do
           type: "admin",
           attributes: {
             name: @admin.name,
-            email: @admin.email
+            email: @admin.email,
+            gender: @admin.gender
           },
           relationships: {
             telephones: {
@@ -75,7 +77,8 @@ RSpec.describe "AdminsRequest", type: :request do
           type: "admin",
           attributes: {
             name: admin.name,
-            email: admin.email
+            email: admin.email,
+            gender: admin.gender
           },
           relationships: {
             telephones: {
@@ -99,7 +102,8 @@ RSpec.describe "AdminsRequest", type: :request do
           type: "admin",
           attributes: {
             name: @admin.name,
-            email: @admin.email
+            email: @admin.email,
+            gender: @admin.gender
           },
           relationships: {
             telephones: {

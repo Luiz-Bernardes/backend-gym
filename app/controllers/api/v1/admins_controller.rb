@@ -54,6 +54,7 @@ class Api::V1::AdminsController < Api::V1::ApplicationController
         :email,
         :gym_id, 
         :user_type,
+        :gender,
         telephones_attributes: [:number],
         locations_attributes: [
           :address,

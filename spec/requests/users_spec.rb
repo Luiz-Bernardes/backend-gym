@@ -25,7 +25,8 @@ RSpec.describe "UsersRequest", type: :request do
             type: "user",
             attributes: {
               name: @user.name,
-              email: @user.email
+              email: @user.email,
+              gender: @user.gender
             },
             relationships: {
               telephones: {
@@ -48,7 +49,8 @@ RSpec.describe "UsersRequest", type: :request do
           type: "user",
           attributes: {
             name: @user.name,
-            email: @user.email
+            email: @user.email,
+            gender: @user.gender
           },
           relationships: {
             telephones: {
@@ -75,7 +77,8 @@ RSpec.describe "UsersRequest", type: :request do
           type: "user",
           attributes: {
             name: user.name,
-            email: user.email
+            email: user.email,
+            gender: user.gender
           },
           relationships: {
             telephones: {
@@ -99,7 +102,8 @@ RSpec.describe "UsersRequest", type: :request do
           type: "user",
           attributes: {
             name: @user.name,
-            email: @user.email
+            email: @user.email,
+            gender: @user.gender
           },
           relationships: {
             telephones: {

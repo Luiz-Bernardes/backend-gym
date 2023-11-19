@@ -30,6 +30,9 @@ RSpec.describe Employee, type: :model do
     it 'is expected to validate that :role class eq String' do 
       expect(@employee.role.class).to eq(String)
     end
+    it 'is expected to validate that :gender class eq String' do 
+      expect(@employee.gender.class).to eq(String)
+    end
     it 'is expected to validate that :gym class eq Gym' do 
       expect(@employee.gym.class).to eq(Gym)
     end

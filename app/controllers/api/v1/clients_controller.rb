@@ -59,6 +59,12 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
         :plan_id, 
         :gym_id, 
         :user_type,
+        :medical_name,
+        :medical_address,
+        :medical_email,
+        :medical_telephone,
+        :medical_type,
+        :gender,
         telephones_attributes: [:number],
         locations_attributes: [
           :address,

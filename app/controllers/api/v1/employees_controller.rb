@@ -55,6 +55,7 @@ class Api::V1::EmployeesController < Api::V1::ApplicationController
         :role, 
         :gym_id, 
         :user_type,
+        :gender,
         telephones_attributes: [:number],
         locations_attributes: [
           :address,

@@ -53,6 +53,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         :name, 
         :email,
         :gym_id,
+        :gender,
         telephones_attributes: [:number],
         locations_attributes: [
           :address,
