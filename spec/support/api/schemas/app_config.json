@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "city": {
+      "required": ["id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "medical_attributes" : {"type": "boolean"},
+        "gender_attribute" : {"type": "boolean"},
+        "gym_id" : {"type": "integer"}
+      }
+    }
+  }
+}

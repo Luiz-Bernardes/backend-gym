@@ -15,6 +15,12 @@ class Gym {
   -String cnpj
 }
 
+class AppConfig {
+  +Boolean medical_attributes
+  +Boolean gender_attribute
+  +Int gym_id
+}
+
 class GymType {
   +String name
   +String slug
@@ -64,6 +70,12 @@ class Client extends User {
   +String fathers_name
   +String mothers_name
   +String occupation
+  +String medical_name
+  +String medical_address
+  +String medical_email
+  +String medical_telephone
+  +String medical_type
+  +String gender
   +Int plan_id
 }
 
@@ -119,6 +131,7 @@ class TrainingExercise {
 
 User "many" *-up- "1" Gym: Association
 Gym "one" *-up- "1" GymType: Association
+AppConfig "one" *-up- "1" Gym: Association
 Telephone "many" *-up- "1" Gym: Association
 Location "many" *-up- "1" Gym: Association
 City "many" *-up- "1" State: Composition

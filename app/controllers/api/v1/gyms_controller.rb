@@ -59,6 +59,6 @@ class Api::V1::GymsController < Api::V1::ApplicationController
 	  end
 
 	  def options
-	    @options ||= { include: %i[telephones locations users] } 
+	    @options ||= { include: %i[telephones locations users app_config] } 
 	  end
 end

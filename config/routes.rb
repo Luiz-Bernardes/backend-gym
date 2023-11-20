@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :gyms, only: [:index, :show, :update, :create, :destroy]
+      resources :app_configs, only: [:show, :update]
       resources :telephones
       resources :states, only: [:index, :show, :update, :create]
       resources :cities, only: [:index, :show, :update, :create]
