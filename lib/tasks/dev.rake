@@ -16,6 +16,23 @@ namespace :dev do
       spinner_pulse('Testing models ...') { puts %x(rspec spec/models/) }
       spinner_pulse('Testing controllers ...') { puts %x(rspec spec/controllers/ ) }
       spinner_pulse('Testing requests ...') { puts %x(rspec spec/requests/) }
+      spinner_pulse('Cleaning logs ...') { puts %x(rails dev:clean_logs) }
+    else
+      puts "Invalid, you are not in development environment!"
+    end
+  end
+
+  task clean_logs: :environment do
+    if Rails.env.development?
+      User.all.map(&:id).each do |user_id|
+        file_path = "app/logs/activities_user_#{user_id}.txt"
+        begin
+          File.open(file_path, 'r') do |file|
+            File.delete(file)
+          end
+        rescue Errno::ENOENT
+        end
+      end
     else
       puts "Invalid, you are not in development environment!"
     end
