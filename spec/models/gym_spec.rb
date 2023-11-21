@@ -67,6 +67,12 @@ RSpec.describe Gym, type: :model do
         expect(@gym.count_admins).to eq(GymService.count_users(@gym, ADMIN))
       end
     end
+
+    context 'observers' do
+      it 'app_config create' do
+        expect(@gym.app_config.nil?).to be_falsey
+      end
+    end
   end
   
 end

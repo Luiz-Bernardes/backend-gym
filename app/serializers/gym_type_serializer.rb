@@ -2,5 +2,5 @@ class GymTypeSerializer
   include JSONAPI::Serializer
   attributes :name, :slug
 
-  has_many :gym, serializer: GymSerializer
+  has_many :gyms, serializer: GymSerializer
 end
