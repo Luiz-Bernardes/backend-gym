@@ -3,5 +3,5 @@ class GymType < ApplicationRecord
 	validates :name, :slug, presence: true	
 
 	# ASSOCIATIONS
-	has_one :gym
+	has_many :gym
 end

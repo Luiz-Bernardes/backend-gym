@@ -130,7 +130,7 @@ class TrainingExercise {
 
 
 User "many" *-up- "1" Gym: Association
-Gym "one" *-up- "1" GymType: Association
+Gym "many" *-up- "1" GymType: Association
 AppConfig "one" *-up- "1" Gym: Association
 Telephone "many" *-up- "1" Gym: Association
 Location "many" *-up- "1" Gym: Association
