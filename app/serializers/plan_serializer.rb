@@ -2,5 +2,5 @@ class PlanSerializer
   include JSONAPI::Serializer
   attributes :name, :price
 
-  has_many :users, serializer: UserSerializer
+  has_many :clients, serializer: ClientSerializer
 end

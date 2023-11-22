@@ -1,5 +1,5 @@
 class Api::V1::ClientsController < Api::V1::ApplicationController
-  before_action :authenticate_api_v1_user! # @current_api_v1_user
+  before_action :authenticate_api_v1_user!
   before_action :set_client, only: [:show, :update, :destroy]
 
   # GET /api/v1/clients
@@ -16,7 +16,7 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
   # POST /api/v1/clients
   def create
     @client = ClientService.save_for(client_params, @current_api_v1_user)
-    if @client.valid?
+    if @client.valid?  
       render json: serialize_client(@client, options), status: :created
     else
       render json: @client.errors, status: :unprocessable_entity
@@ -59,6 +59,12 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
         :plan_id, 
         :gym_id, 
         :user_type,
+        :medical_name,
+        :medical_address,
+        :medical_email,
+        :medical_telephone,
+        :medical_type,
+        :gender,
         telephones_attributes: [:number],
         locations_attributes: [
           :address,

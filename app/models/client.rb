@@ -8,6 +8,7 @@ class Client < User
 	# ASSOCIATIONS
 	has_many :records
 	has_many :payments
+	belongs_to :plan, optional: true 
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :records
