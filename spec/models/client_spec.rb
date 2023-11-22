@@ -69,5 +69,21 @@ RSpec.describe Client, type: :model do
       expect(@client.gym.class).to eq(Gym)
     end
   end
+
+  context 'Methods validations' do
+    context 'Service methods' do
+      it '#delete' do
+        ClientService.delete(@client)
+        expect(@client.deleted).to eq(true)
+      end
+    end
+
+    context 'Model methods' do
+      it '#delete' do
+        @client.delete
+        expect(@client.deleted).to eq(true)
+      end
+    end
+  end
   
 end

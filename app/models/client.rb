@@ -12,4 +12,8 @@ class Client < User
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :records
+
+	def delete
+		ClientService.delete(self)
+	end
 end

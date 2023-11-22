@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :plans
       resources :users, only: [:index, :show, :update, :create]
       resources :payment_methods, only: [:index]
-      resources :clients, only: [:index, :show, :update, :create] do 
+      resources :clients do 
         resources :payments
       end
       resources :admins, only: [:index, :show, :update, :create]

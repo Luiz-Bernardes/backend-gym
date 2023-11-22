@@ -1,6 +1,6 @@
 class EmployeeService
 	def self.all_from current_user
-		Employee.where(gym_id: current_user.gym.id)
+		Employee.where(gym_id: current_user.gym.id, deleted: false)
 	end
 
 	def self.save_for params, current_user

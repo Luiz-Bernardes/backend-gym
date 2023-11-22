@@ -56,6 +56,7 @@ class User {
   +String name
   +String email
   +String user_type
+  +Boolean deleted
 }
 
 class Admin extends User {

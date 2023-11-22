@@ -34,7 +34,7 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
 
   # DELETE /api/v1/clients/1
   def destroy
-    @client.destroy
+    @client.delete
   end
 
   private
