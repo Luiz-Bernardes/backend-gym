@@ -62,6 +62,9 @@ RSpec.describe Client, type: :model do
     it 'is expected to validate that :gender class eq String' do 
       expect(@client.gender.class).to eq(String)
     end
+    it 'is expected to validate that :plan class eq Plan' do 
+      expect(@client.plan.class).to eq(Plan)
+    end
     it 'is expected to validate that :gym class eq Gym' do 
       expect(@client.gym.class).to eq(Gym)
     end

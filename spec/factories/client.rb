@@ -15,6 +15,7 @@ FactoryBot.define do
 		medical_telephone { Faker::PhoneNumber.cell_phone }
 		medical_type { 'general' }
 		gender { 'masculine' }
+		plan
 		gym
 	end
 end

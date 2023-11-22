@@ -77,6 +77,6 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
     end
 
     def options
-      @options ||= { include: %i[telephones locations records] } 
+      @options ||= { include: %i[telephones locations records plan] } 
     end
 end
