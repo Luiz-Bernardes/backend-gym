@@ -8,4 +8,9 @@ class Plan < ApplicationRecord
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :clients
+
+	# METHODS
+	def delete
+		PlanService.delete(self)
+	end
 end

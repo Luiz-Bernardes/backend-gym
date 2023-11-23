@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "EmployeesRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
-    @employee = create(:employee)
+    @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    @employee = create(:employee, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   describe "JSON Schema " do

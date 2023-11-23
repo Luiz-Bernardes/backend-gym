@@ -4,9 +4,11 @@ include ApplicationHelper
 RSpec.describe Api::V1::ClientsController, type: :controller do
   before(:each) do 
     # FACTORIES
-    @client = create(:client)
+    @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    @client = create(:client, gym: @gym)
     # ADD HEADER
-    request_header(@client)
+    request_header(@admin)
   end
 
   it "GET /index" do

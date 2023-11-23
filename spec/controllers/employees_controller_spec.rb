@@ -4,9 +4,11 @@ include ApplicationHelper
 RSpec.describe Api::V1::EmployeesController, type: :controller do
   before(:each) do 
     # FACTORIES
-    @employee = create(:employee)
+    @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    @employee = create(:employee, gym: @gym)
     # ADD HEADER
-    request_header(@employee)
+    request_header(@admin)
   end
 
   it "GET /index" do

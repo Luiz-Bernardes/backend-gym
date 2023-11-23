@@ -1,11 +1,14 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Api::V1::PlansController, type: :controller do
   before(:each) do 
-    # ADD HEADER
-    request.headers.merge!({'Accept': 'application/json'})
     # FACTORIES
-    @plan = create(:plan)
+    @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    @plan = create(:plan, gym: @gym)
+    # ADD HEADER
+    request_header(@admin)
   end
 
   it "GET /index" do

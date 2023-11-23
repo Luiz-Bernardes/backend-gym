@@ -27,5 +27,21 @@ RSpec.describe Plan, type: :model do
       expect(@plan.gym.class).to eq(Gym)
     end
   end
+
+  context 'Methods validations' do
+    context 'Service methods' do
+      it '#delete' do
+        PlanService.delete(@plan)
+        expect(@plan.deleted).to eq(true)
+      end
+    end
+
+    context 'Model methods' do
+      it '#delete' do
+        @plan.delete
+        expect(@plan.deleted).to eq(true)
+      end
+    end
+  end
   
 end
