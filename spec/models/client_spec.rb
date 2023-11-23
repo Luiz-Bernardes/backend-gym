@@ -35,11 +35,11 @@ RSpec.describe Client, type: :model do
     it 'is expected to validate that :height class eq BigDecimal' do 
       expect(@client.height.class).to eq(BigDecimal)
     end
-    it 'is expected to validate that :birthdate class eq String' do 
-      expect(@client.birthdate.class).to eq(String)
+    it 'is expected to validate that :birthdate class eq Date' do 
+      expect(@client.birthdate.class).to eq(Date)
     end
-    it 'is expected to validate that :begindate class eq String' do 
-      expect(@client.begindate.class).to eq(String)
+    it 'is expected to validate that :begindate class eq Date' do 
+      expect(@client.begindate.class).to eq(Date)
     end
     it 'is expected to validate that :user_type class eq String' do 
       expect(@client.user_type.class).to eq(String)

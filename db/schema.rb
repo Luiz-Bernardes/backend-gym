@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_135927) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_180359) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -140,8 +140,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_135927) do
     t.datetime "updated_at", null: false
     t.decimal "weight"
     t.decimal "height"
-    t.string "birthdate"
-    t.string "begindate"
+    t.date "birthdate"
+    t.date "begindate"
     t.integer "plan_id"
     t.string "user_type"
     t.integer "gym_id"
