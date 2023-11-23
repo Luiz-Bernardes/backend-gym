@@ -34,7 +34,7 @@ class Api::V1::EmployeesController < Api::V1::ApplicationController
 
   # DELETE /api/v1/employees/1
   def destroy
-    @employee.destroy
+    @employee.delete
   end
 
   private

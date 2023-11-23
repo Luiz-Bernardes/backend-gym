@@ -37,5 +37,21 @@ RSpec.describe Employee, type: :model do
       expect(@employee.gym.class).to eq(Gym)
     end
   end
+
+  context 'Methods validations' do
+    context 'Service methods' do
+      it '#delete' do
+        EmployeeService.delete(@employee)
+        expect(@employee.deleted).to eq(true)
+      end
+    end
+
+    context 'Model methods' do
+      it '#delete' do
+        @employee.delete
+        expect(@employee.deleted).to eq(true)
+      end
+    end
+  end
   
 end

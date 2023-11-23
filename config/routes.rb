@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         resources :payments
       end
       resources :admins, only: [:index, :show, :update, :create]
-      resources :employees, only: [:index, :show, :update, :create]
+      resources :employees
       resources :exercises
       resources :records, only: [:index, :show, :update, :create] do
         resources :trainings

@@ -34,4 +34,9 @@ RSpec.describe Api::V1::EmployeesController, type: :controller do
     expect(response).to have_http_status(200)
   end
 
+  it "DELETE /destroy" do
+    delete :destroy, params: { id: @employee.id }
+    expect(response).to have_http_status(204)
+  end
+
 end

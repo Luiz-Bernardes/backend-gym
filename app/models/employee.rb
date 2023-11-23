@@ -7,4 +7,9 @@ class Employee < User
 
 	# NESTED ATTRS
 	accepts_nested_attributes_for :records
+
+	# METHODS
+	def delete
+		EmployeeService.delete(self)
+	end
 end

@@ -9,4 +9,9 @@ class EmployeeService
     employee.save
     employee
 	end
+
+	def self.delete employee
+		employee.deleted = true
+		employee.save
+	end
 end
