@@ -1,11 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe "PaymentsRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @payment = create(:payment)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   describe "JSON Schema " do

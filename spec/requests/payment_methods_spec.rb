@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "PaymentMethodsRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @payment_method = create(:payment_method)
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
   end
 
   describe "JSON Schema " do

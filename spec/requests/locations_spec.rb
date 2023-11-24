@@ -1,14 +1,16 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe "LocationsRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @gym = create(:gym)
     @user = create(:user)
     @city = create(:city)
     @location = create(:location, gym: @gym, user: @user, city: @city)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   describe "JSON Schema " do

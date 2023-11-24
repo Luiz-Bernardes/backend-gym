@@ -1,13 +1,15 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe "TelephonesRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @gym = create(:gym)
     @user = create(:user)
     @telephone = create(:telephone, gym: @gym, user: @user)
+    @admin = create(:admin, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   describe "JSON Schema " do

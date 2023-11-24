@@ -1,11 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe "GymsRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   describe "JSON Schema " do

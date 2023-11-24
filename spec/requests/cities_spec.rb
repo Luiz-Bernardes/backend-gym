@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "CitiesRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @city = create(:city)
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
   end
 
   describe "JSON Schema " do

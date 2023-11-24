@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "StatesRequest", type: :request do
   before(:each) do 
-    # ADD HEADER
-    @headers = { "ACCEPT" => "application/json" }
     # FACTORIES
     @state = create(:state)
+    # ADD HEADER
+    @headers = { "ACCEPT" => "application/json" }
   end
 
   describe "JSON Schema " do
