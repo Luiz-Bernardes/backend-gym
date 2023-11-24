@@ -1,11 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Api::V1::RecordsController, type: :controller do
   before(:each) do 
-    # ADD HEADER
-    request.headers.merge!({'Accept': 'application/json'})
     # FACTORIES
+    @admin = create(:admin)
     @record = create(:record)
+    # ADD HEADER
+    request_header(@admin)
   end
 
   it "GET /index" do

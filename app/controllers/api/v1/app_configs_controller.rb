@@ -1,4 +1,5 @@
 class Api::V1::AppConfigsController < Api::V1::ApplicationController
+  # before_action :authenticate_api_v1_user!
   before_action :set_app_config, only: [:show, :update]
 
   # GET /api/v1/app_configs/1

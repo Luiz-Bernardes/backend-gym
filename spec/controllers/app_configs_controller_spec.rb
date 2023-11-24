@@ -1,11 +1,14 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Api::V1::AppConfigsController, type: :controller do
   before(:each) do 
-    # ADD HEADER
-    request.headers.merge!({'Accept': 'application/json'})
     # FACTORIES
-    @app_config = create(:app_config)
+    @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    @app_config = create(:app_config, gym: @gym)
+    # ADD HEADER
+    request_header(@admin)
   end
 
   it "GET /show" do

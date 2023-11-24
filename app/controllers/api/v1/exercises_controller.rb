@@ -1,4 +1,5 @@
 class Api::V1::ExercisesController < Api::V1::ApplicationController
+  # before_action :authenticate_api_v1_user!
   before_action :set_exercise, only: [:show, :update, :destroy]
 
   # GET /api/v1/exercises

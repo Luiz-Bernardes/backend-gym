@@ -1,11 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Api::V1::LocationsController, type: :controller do
   before(:each) do 
-    # ADD HEADER
-    request.headers.merge!({'Accept': 'application/json'})
     # FACTORIES
+    @admin = create(:admin)
     @location = create(:location)
+    # ADD HEADER
+    request_header(@admin)
   end
 
   it "GET /index" do

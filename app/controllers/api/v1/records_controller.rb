@@ -1,4 +1,5 @@
 class Api::V1::RecordsController < Api::V1::ApplicationController
+  # before_action :authenticate_api_v1_user!
   before_action :set_record, only: [:show, :update, :destroy]
 
   # GET /api/v1/records

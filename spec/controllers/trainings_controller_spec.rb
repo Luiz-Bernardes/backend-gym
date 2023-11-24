@@ -1,11 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Api::V1::TrainingsController, type: :controller do
   before(:each) do 
-    # ADD HEADER
-    request.headers.merge!({'Accept': 'application/json'})
     # FACTORIES
+    @admin = create(:admin)
     @training = create(:training)
+    # ADD HEADER
+    request_header(@admin)
   end
 
   it "GET /index" do
