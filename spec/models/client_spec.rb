@@ -1,8 +1,15 @@
 require 'rails_helper'
+require 'faker'
+include ApplicationHelper
 
 RSpec.describe Client, type: :model do
   before(:each) do 
-    @client = create(:client)
+    # FACTORIES
+    @gym = create(:gym)
+    @client = create(:client, gym: @gym)
+    @admin = create(:admin, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do
@@ -72,6 +79,26 @@ RSpec.describe Client, type: :model do
 
   context 'Methods validations' do
     context 'Service methods' do
+      it '#all_from' do
+        clients = ClientService.all_from(@admin)
+        expect(clients.count).to eq(1)
+        expect(clients.first).to eq(@client)
+        expect(clients.first.gym).to eq(@gym)
+        expect(clients.class.name).to eq("ActiveRecord::Relation")
+      end
+      it '#save_for' do
+        params = { 
+          name: Faker::Name.name, 
+          email: Faker::Internet.email, 
+          weight: Faker::Number.between(from: 40, to: 100).to_f, 
+          height: Faker::Demographic.height.to_f,
+          user_type: CLIENT,
+          gym: @gym
+        }
+        expect {
+          ClientService.save_for(params, @admin)
+        }.to change(Client, :count).by(1)
+      end
       it '#delete' do
         ClientService.delete(@client)
         expect(@client.deleted).to eq(true)

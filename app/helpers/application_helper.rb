@@ -5,7 +5,7 @@ module ApplicationHelper
     request.headers.merge!(user.create_new_auth_token)
   end
 
-  # Headers for rspec requests
+  # Headers for rspec models, requests
   def request_set_headers(user)
     headers = { "ACCEPT" => "application/json" }
     headers.merge!(user.create_new_auth_token)

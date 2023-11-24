@@ -1,8 +1,15 @@
 require 'rails_helper'
+require 'faker'
+include ApplicationHelper
 
 RSpec.describe Employee, type: :model do
   before(:each) do 
-    @employee = create(:employee)
+    # FACTORIES
+    @gym = create(:gym)
+    @employee = create(:employee, gym: @gym)
+    @admin = create(:admin, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do
@@ -40,6 +47,25 @@ RSpec.describe Employee, type: :model do
 
   context 'Methods validations' do
     context 'Service methods' do
+      it '#all_from' do
+        employees = EmployeeService.all_from(@admin)
+        expect(employees.count).to eq(1)
+        expect(employees.first).to eq(@employee)
+        expect(employees.first.gym).to eq(@gym)
+        expect(employees.class.name).to eq("ActiveRecord::Relation")
+      end
+      it '#save_for' do
+        params = { 
+          name: Faker::Name.name, 
+          email: Faker::Internet.email, 
+          role: Faker::Construction.role,
+          user_type: EMPLOYEE,
+          gym: @gym
+        }
+        expect {
+          EmployeeService.save_for(params, @admin)
+        }.to change(Employee, :count).by(1)
+      end
       it '#delete' do
         EmployeeService.delete(@employee)
         expect(@employee.deleted).to eq(true)

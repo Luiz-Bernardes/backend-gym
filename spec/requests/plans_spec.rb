@@ -1,4 +1,5 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe "PlansRequest", type: :request do
   before(:each) do 
