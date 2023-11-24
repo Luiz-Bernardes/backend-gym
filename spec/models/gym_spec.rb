@@ -1,9 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Gym, type: :model do
   before(:each) do 
+    # FACTORIES
     @gym = create(:gym)
     @admin = create(:admin, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

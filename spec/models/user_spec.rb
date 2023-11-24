@@ -1,8 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe User, type: :model do
   before(:each) do 
+    # FACTORIES
     @user = create(:user)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

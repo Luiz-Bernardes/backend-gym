@@ -1,10 +1,15 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Location, type: :model do
   before(:each) do 
+    # FACTORIES
     @location = create(:location)
     @location_from_gym = create(:location_from_gym)
     @location_from_user = create(:location_from_user)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

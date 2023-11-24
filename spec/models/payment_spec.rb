@@ -1,8 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Payment, type: :model do
   before(:each) do 
+    # FACTORIES
     @payment = create(:payment)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

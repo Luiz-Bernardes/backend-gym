@@ -1,8 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Training, type: :model do
   before(:each) do 
+    # FACTORIES
     @training = create(:training)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

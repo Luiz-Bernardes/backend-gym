@@ -1,10 +1,15 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Telephone, type: :model do
   before(:each) do 
+    # FACTORIES
     @telephone = create(:telephone)
     @telephone_from_gym = create(:telephone_from_gym)
     @telephone_from_user = create(:telephone_from_user)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

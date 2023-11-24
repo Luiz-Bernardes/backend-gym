@@ -1,8 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe AppConfig, type: :model do
   before(:each) do 
+    # FACTORIES
     @app_config = create(:app_config)
+    @admin = create(:admin)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do

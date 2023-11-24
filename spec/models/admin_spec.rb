@@ -1,8 +1,13 @@
 require 'rails_helper'
+include ApplicationHelper
 
 RSpec.describe Admin, type: :model do
   before(:each) do 
-    @admin = create(:admin)
+    # FACTORIES
+    @gym = create(:gym)
+    @admin = create(:admin, gym: @gym)
+    # ADD HEADER
+    @headers = request_set_headers(@admin)
   end
 
   context 'Create validation' do
