@@ -1,5 +1,6 @@
 class Api::V1::ApplicationController < ActionController::API
 	include DeviseTokenAuth::Concerns::SetUserByToken
+	include BrowserHelper
 	before_action :validate_json_request
 	before_action :configure_permitted_devise_parameters, if: :devise_controller?
 	after_action :store_user_activities, if: :save_actions?
@@ -33,7 +34,7 @@ class Api::V1::ApplicationController < ActionController::API
 		text_content << "{ controller: " + controller_name + " } ~ "
 		text_content << "{ action: " + action_name + " } ~ "
 		text_content << "{ date_time: " + DateTime.now.strftime("%d/%m/%Y %H:%M") + " } ~ "
-		text_content << "{ browser: " + request.env['HTTP_USER_AGENT'] + " } ~ " unless request.env['HTTP_USER_AGENT'].nil?
+		text_content << "{ browser: " + client_browser_name + " } ~ " unless request.env['HTTP_USER_AGENT'].nil?
 		text_content << "{ ip_address: " + request.env['REMOTE_ADDR'] + " } \n"
 		text_content
 	end
