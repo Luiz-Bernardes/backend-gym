@@ -15,6 +15,11 @@ class User < ApplicationRecord
 	# NESTED ATTRS
 	accepts_nested_attributes_for :telephones, :locations
 
+	# METHODS
+	def admin?
+		self.user_type == ADMIN
+	end
+
 	# OVERWRITE
 	protected 
   def password_required? 

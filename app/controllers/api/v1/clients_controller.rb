@@ -1,22 +1,24 @@
+# class Api::V1::ClientsController < Api::V1::AuthenticateController
 class Api::V1::ClientsController < Api::V1::ApplicationController
-  # before_action :authenticate_api_v1_user!
   before_action :set_client, only: [:show, :update, :destroy]
 
   # GET /api/v1/clients
   def index
     @clients = Client.all
+    # authorize @clients
     render json: serialize_client(@clients, options)
   end
 
   # GET /api/v1/clients/1
   def show
+    # authorize @client
     render json: serialize_client(@client, options)
   end
 
   # POST /api/v1/clients
   def create
     @client = Client.new(client_params)
-
+    # authorize @client
     if @client.save
       render json: serialize_client(@client, options), status: :created
     else
@@ -26,6 +28,7 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
 
   # PATCH/PUT /api/v1/clients/1
   def update
+    # authorize @client
     if @client.update(client_params)
       render json: serialize_client(@client, options)
     else
@@ -35,6 +38,7 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
 
   # DELETE /api/v1/clients/1
   def destroy
+    # authorize @client
     @client.delete
   end
 

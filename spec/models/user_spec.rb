@@ -39,5 +39,13 @@ RSpec.describe User, type: :model do
       expect(@user.gym.class).to eq(Gym)
     end
   end
+
+  context 'Methods validations' do
+    context 'Model methods' do
+      it 'admin?' do
+        expect(@user.admin?).to eq(@user.user_type == ADMIN)
+      end
+    end
+  end
   
 end
