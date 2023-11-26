@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BrowserHelper
   # Get browser name
   def client_browser_name
